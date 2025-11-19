@@ -1,0 +1,35 @@
+<?php
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NotificationController;
+
+/*
+|--------------------------------------------------------------------------
+| API Routes للإشعارات
+|--------------------------------------------------------------------------
+*/
+
+Route::middleware('auth:sanctum')->prefix('notifications')->group(function () {
+    // الحصول على الإشعارات
+    Route::get('/', [NotificationController::class, 'index']);
+    
+    // الحصول على عدد غير المقروءة
+    Route::get('/count', [NotificationController::class, 'count']);
+    
+    // إنشاء إشعار جديد
+    Route::post('/', [NotificationController::class, 'store']);
+    
+    // تحديد كمقروء
+    Route::post('/mark-read', [NotificationController::class, 'markAsRead']);
+    
+    // حذف إشعار
+    Route::delete('/{id}', [NotificationController::class, 'destroy']);
+    
+    // تحديث التفضيلات
+    Route::post('/preferences', [NotificationController::class, 'updatePreferences']);
+    
+    // الحصول على التفضيلات
+    Route::get('/preferences', [NotificationController::class, 'getPreferences']);
+});
+

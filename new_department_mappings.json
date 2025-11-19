@@ -1,0 +1,62 @@
+[
+  {
+    "zoho_department_id": "766285000006092035",
+    "zoho_department_name": "All Suppliers-Hotels",
+    "local_department_id": 6,
+    "description": "Mapping for All Suppliers-Hotels - Operation"
+  },
+  {
+    "zoho_department_id": "766285000021972052",
+    "zoho_department_name": "Contracting - EET Global",
+    "local_department_id": 12,
+    "description": "Mapping for Contracting - EET Global - Contracting International"
+  },
+  {
+    "zoho_department_id": "766285000017737029",
+    "zoho_department_name": "Contracting - Egypt",
+    "local_department_id": 11,
+    "description": "Mapping for Contracting - Egypt"
+  },
+  {
+    "zoho_department_id": "766285000150813503",
+    "zoho_department_name": "Contracting - FE",
+    "local_department_id": 12,
+    "description": "Mapping for Contracting - FE - Contracting International"
+  },
+  {
+    "zoho_department_id": "766285000016070029",
+    "zoho_department_name": "Contracting - KSA",
+    "local_department_id": 13,
+    "description": "Mapping for Contracting - KSA - Contracting Middle East"
+  },
+  {
+    "zoho_department_id": "766285000151832843",
+    "zoho_department_name": "Contracting - MZ",
+    "local_department_id": 12,
+    "description": "Mapping for Contracting - MZ - Contracting International"
+  },
+  {
+    "zoho_department_id": "766285000051603029",
+    "zoho_department_name": "EET Global - Complaints",
+    "local_department_id": 6,
+    "description": "Mapping for EET Global - Complaints - Operation"
+  },
+  {
+    "zoho_department_id": "766285000000006907",
+    "zoho_department_name": "EET Global - Customers",
+    "local_department_id": 6,
+    "description": "Mapping for EET Global - Customers - Operation"
+  },
+  {
+    "zoho_department_id": "766285000151839183",
+    "zoho_department_name": "EET Global - Stop Sale",
+    "local_department_id": 6,
+    "description": "Mapping for EET Global - Stop Sale - Operation"
+  },
+  {
+    "zoho_department_id": "766285000013794287",
+    "zoho_department_name": "Egypt Express Travel - Invoices",
+    "local_department_id": 3,
+    "description": "Mapping for Egypt Express Travel - Invoices - Accounts"
+  }
+]

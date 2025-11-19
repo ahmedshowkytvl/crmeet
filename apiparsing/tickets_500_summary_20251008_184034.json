@@ -1,0 +1,37 @@
+{
+  "collection_date": "2025-10-08T18:40:34.329870",
+  "total_tickets_requested": 500,
+  "total_tickets_collected": 500,
+  "total_threads_collected": 1248,
+  "failed_tickets": [],
+  "failed_count": 0,
+  "success_rate": "100.0%",
+  "average_threads_per_ticket": 2.496,
+  "analysis": {
+    "status_distribution": {
+      "Closed": 269,
+      "Open": 229,
+      "In progress": 2
+    },
+    "department_distribution": {
+      "766285000006092035": 229,
+      "766285000000006907": 105,
+      "766285000017737029": 23,
+      "766285000151839183": 10,
+      "766285000151832843": 14,
+      "766285000016070029": 63,
+      "766285000021972052": 28,
+      "766285000013794287": 25,
+      "766285000150813503": 3
+    },
+    "thread_count_distribution": {
+      "1-5": 476,
+      "10+": 14,
+      "6-10": 10
+    }
+  },
+  "file_info": {
+    "chunks_created": 10,
+    "estimated_total_size_mb": 25.0
+  }
+}

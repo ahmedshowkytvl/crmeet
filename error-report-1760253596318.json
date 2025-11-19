@@ -1,0 +1,24 @@
+{
+  "timestamp": "2025-10-12T07:19:56.318Z",
+  "totalErrors": 3,
+  "errorTypes": {
+    "missing_element": 3
+  },
+  "errors": [
+    {
+      "type": "missing_element",
+      "element": "nameInput",
+      "timestamp": "2025-10-12T07:19:56.120Z"
+    },
+    {
+      "type": "missing_element",
+      "element": "urlInput",
+      "timestamp": "2025-10-12T07:19:56.121Z"
+    },
+    {
+      "type": "missing_element",
+      "element": "notesTextarea",
+      "timestamp": "2025-10-12T07:19:56.121Z"
+    }
+  ]
+}

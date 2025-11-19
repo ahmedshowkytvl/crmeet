@@ -1,0 +1,249 @@
+// اختبار Playwright MCP لـ 10 مستخدمين للدردشة الخاصة
+import { chromium } from 'playwright';
+
+// قائمة المستخدمين للاختبار
+const testUsers = [
+    { id: 123, name: 'Admin User', username: 'admin', password: 'P@ssW0rd' },
+    { id: 67, name: 'Mohamed Anwar', username: 'mohamed_anwar', password: 'P@ssW0rd' },
+    { id: 78, name: 'Khaled Ahmed', username: 'emp_156', password: 'P@ssW0rd' },
+    { id: 89, name: 'Yara Ahmed', username: 'emp_916', password: 'P@ssW0rd' },
+    { id: 35, name: 'Hanan Mohamed', username: 'emp_7', password: 'P@ssW0rd' },
+    { id: 36, name: 'Emad Saad', username: 'emp_208', password: 'P@ssW0rd' },
+    { id: 37, name: 'Ahmed Alaa', username: 'emp_206', password: 'P@ssW0rd' },
+    { id: 39, name: 'Mohamed Kamel', username: 'emp_885', password: 'P@ssW0rd' },
+    { id: 129, name: 'خالد أحمد مصطفى', username: 'emp_emp006', password: 'P@ssW0rd' },
+    { id: 124, name: 'أحمد محمد علي', username: 'emp_emp001124', password: 'P@ssW0rd' }
+];
+
+async function test10UsersChat() {
+    console.log('🚀 بدء اختبار الدردشة الخاصة لـ 10 مستخدمين...\n');
+    
+    const browser = await chromium.launch({ 
+        headless: false, // إظهار المتصفح
+        slowMo: 1000, // إبطاء العمليات لمراقبة أفضل
+        args: ['--start-maximized'] // تكبير النافذة
+    });
+    
+    const contexts = [];
+    const pages = [];
+    
+    try {
+        // إنشاء صفحات متعددة للمستخدمين
+        console.log('👥 إنشاء صفحات متعددة للمستخدمين...');
+        
+        for (let i = 0; i < testUsers.length; i++) {
+            const context = await browser.newContext();
+            const page = await context.newPage();
+            
+            contexts.push(context);
+            pages.push(page);
+            
+            console.log(`✅ تم إنشاء صفحة للمستخدم ${i + 1}: ${testUsers[i].name}`);
+        }
+        
+        // تسجيل دخول جميع المستخدمين
+        console.log('\n🔐 تسجيل دخول جميع المستخدمين...');
+        
+        for (let i = 0; i < pages.length; i++) {
+            const page = pages[i];
+            const user = testUsers[i];
+            
+            console.log(`📝 تسجيل دخول المستخدم ${i + 1}: ${user.name}...`);
+            
+            await page.goto('http://127.0.0.1:8000/login');
+            await page.waitForLoadState('networkidle');
+            
+            // تسجيل الدخول
+            await page.fill('input[name="email"]', user.username);
+            await page.fill('input[name="password"]', user.password);
+            await page.click('button[type="submit"]');
+            
+            try {
+                await page.waitForURL('**/dashboard**', { timeout: 10000 });
+                console.log(`✅ تم تسجيل دخول ${user.name} بنجاح!`);
+            } catch (error) {
+                console.log(`⚠️ مشكلة في تسجيل دخول ${user.name}: ${error.message}`);
+            }
+            
+            // انتظار قليل بين كل تسجيل دخول
+            await page.waitForTimeout(2000);
+        }
+        
+        // اختبار الدردشة بين المستخدمين
+        console.log('\n💬 بدء اختبار الدردشة بين المستخدمين...');
+        
+        // المستخدم 1 يرسل رسالة للمستخدم 2
+        console.log('\n📤 المستخدم 1 يرسل رسالة للمستخدم 2...');
+        await testDirectChat(pages[0], testUsers[0], testUsers[1]);
+        
+        // المستخدم 2 يرد على المستخدم 1
+        console.log('\n📤 المستخدم 2 يرد على المستخدم 1...');
+        await testDirectChat(pages[1], testUsers[1], testUsers[0]);
+        
+        // المستخدم 3 يرسل رسالة للمستخدم 4
+        console.log('\n📤 المستخدم 3 يرسل رسالة للمستخدم 4...');
+        await testDirectChat(pages[2], testUsers[2], testUsers[3]);
+        
+        // المستخدم 4 يرد على المستخدم 3
+        console.log('\n📤 المستخدم 4 يرد على المستخدم 3...');
+        await testDirectChat(pages[3], testUsers[3], testUsers[2]);
+        
+        // المستخدم 5 يرسل رسالة للمستخدم 6
+        console.log('\n📤 المستخدم 5 يرسل رسالة للمستخدم 6...');
+        await testDirectChat(pages[4], testUsers[4], testUsers[5]);
+        
+        // المستخدم 6 يرد على المستخدم 5
+        console.log('\n📤 المستخدم 6 يرد على المستخدم 5...');
+        await testDirectChat(pages[5], testUsers[5], testUsers[4]);
+        
+        // المستخدم 7 يرسل رسالة للمستخدم 8
+        console.log('\n📤 المستخدم 7 يرسل رسالة للمستخدم 8...');
+        await testDirectChat(pages[6], testUsers[6], testUsers[7]);
+        
+        // المستخدم 8 يرد على المستخدم 7
+        console.log('\n📤 المستخدم 8 يرد على المستخدم 7...');
+        await testDirectChat(pages[7], testUsers[7], testUsers[6]);
+        
+        // المستخدم 9 يرسل رسالة للمستخدم 10
+        console.log('\n📤 المستخدم 9 يرسل رسالة للمستخدم 10...');
+        await testDirectChat(pages[8], testUsers[8], testUsers[9]);
+        
+        // المستخدم 10 يرد على المستخدم 9
+        console.log('\n📤 المستخدم 10 يرد على المستخدم 9...');
+        await testDirectChat(pages[9], testUsers[9], testUsers[8]);
+        
+        // اختبار دردشة جماعية
+        console.log('\n👥 اختبار دردشة جماعية بين المستخدمين 1, 2, 3...');
+        await testGroupChat(pages[0], testUsers[0], [testUsers[1], testUsers[2]]);
+        
+        // انتظار نهائي لمراقبة النتائج
+        console.log('\n⏳ انتظار نهائي لمراقبة النتائج...');
+        await pages[0].waitForTimeout(5000);
+        
+        console.log('\n🎉 تم إكمال اختبار الدردشة لـ 10 مستخدمين بنجاح!');
+        
+    } catch (error) {
+        console.error('❌ حدث خطأ أثناء الاختبار:', error.message);
+    } finally {
+        // إغلاق جميع الصفحات والمتصفح
+        console.log('\n🔚 إغلاق جميع الصفحات والمتصفح...');
+        
+        for (const context of contexts) {
+            await context.close();
+        }
+        
+        await browser.close();
+        console.log('✅ تم إغلاق المتصفح بنجاح');
+    }
+}
+
+// دالة اختبار الدردشة المباشرة
+async function testDirectChat(page, sender, receiver) {
+    try {
+        console.log(`📝 ${sender.name} يرسل رسالة إلى ${receiver.name}...`);
+        
+        // الذهاب إلى صفحة بطاقة الاتصال للمستقبل
+        await page.goto(`http://127.0.0.1:8000/users/${receiver.id}/contact-card`);
+        await page.waitForLoadState('networkidle');
+        
+        // انتظار تحميل الصفحة
+        await page.waitForTimeout(2000);
+        
+        // البحث عن زر "رسالة سريعة"
+        try {
+            await page.waitForSelector('button:has-text("رسالة سريعة")', { timeout: 10000 });
+            await page.click('button:has-text("رسالة سريعة")');
+            console.log(`✅ تم الضغط على زر "رسالة سريعة" من ${sender.name} إلى ${receiver.name}`);
+        } catch (error) {
+            console.log(`⚠️ لم يتم العثور على زر "رسالة سريعة" لـ ${receiver.name}`);
+            // محاولة الذهاب مباشرة إلى صفحة الدردشة
+            await page.goto('http://127.0.0.1:8000/chat');
+            await page.waitForLoadState('networkidle');
+        }
+        
+        // انتظار تحميل صفحة الدردشة
+        await page.waitForTimeout(3000);
+        
+        // البحث عن عناصر الدردشة
+        const messageInput = await page.locator('#messageInput').first();
+        const sendButton = await page.locator('#sendMessageBtn').first();
+        
+        const inputExists = await messageInput.count() > 0;
+        const buttonExists = await sendButton.count() > 0;
+        
+        if (inputExists && buttonExists) {
+            // إرسال رسالة
+            const message = `مرحباً ${receiver.name}! هذه رسالة من ${sender.name} - ${new Date().toLocaleTimeString()}`;
+            
+            await messageInput.fill(message);
+            console.log(`✅ تم كتابة الرسالة: "${message.substring(0, 50)}..."`);
+            
+            await page.waitForTimeout(1000);
+            
+            await sendButton.click();
+            console.log(`✅ تم إرسال الرسالة من ${sender.name} إلى ${receiver.name}`);
+            
+            // انتظار الاستجابة
+            await page.waitForTimeout(3000);
+            
+            // فحص الرسائل
+            const messages = await page.locator('.message').count();
+            console.log(`✅ عدد الرسائل في دردشة ${sender.name}: ${messages}`);
+            
+        } else {
+            console.log(`⚠️ لم يتم العثور على عناصر الدردشة لـ ${sender.name}`);
+        }
+        
+    } catch (error) {
+        console.log(`❌ خطأ في دردشة ${sender.name} إلى ${receiver.name}: ${error.message}`);
+    }
+}
+
+// دالة اختبار الدردشة الجماعية
+async function testGroupChat(page, sender, receivers) {
+    try {
+        console.log(`👥 ${sender.name} يبدأ دردشة جماعية مع ${receivers.map(r => r.name).join(', ')}...`);
+        
+        // الذهاب إلى صفحة الدردشة
+        await page.goto('http://127.0.0.1:8000/chat');
+        await page.waitForLoadState('networkidle');
+        
+        await page.waitForTimeout(3000);
+        
+        // البحث عن عناصر الدردشة
+        const messageInput = await page.locator('#messageInput').first();
+        const sendButton = await page.locator('#sendMessageBtn').first();
+        
+        const inputExists = await messageInput.count() > 0;
+        const buttonExists = await sendButton.count() > 0;
+        
+        if (inputExists && buttonExists) {
+            // إرسال رسالة جماعية
+            const message = `مرحباً جميعاً! هذه رسالة جماعية من ${sender.name} - ${new Date().toLocaleTimeString()}`;
+            
+            await messageInput.fill(message);
+            console.log(`✅ تم كتابة الرسالة الجماعية: "${message.substring(0, 50)}..."`);
+            
+            await page.waitForTimeout(1000);
+            
+            await sendButton.click();
+            console.log(`✅ تم إرسال الرسالة الجماعية من ${sender.name}`);
+            
+            // انتظار الاستجابة
+            await page.waitForTimeout(3000);
+            
+            // فحص الرسائل
+            const messages = await page.locator('.message').count();
+            console.log(`✅ عدد الرسائل في الدردشة الجماعية: ${messages}`);
+            
+        } else {
+            console.log(`⚠️ لم يتم العثور على عناصر الدردشة الجماعية`);
+        }
+        
+    } catch (error) {
+        console.log(`❌ خطأ في الدردشة الجماعية: ${error.message}`);
+    }
+}
+
+// تشغيل الاختبار
+test10UsersChat().catch(console.error);

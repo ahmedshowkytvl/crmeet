@@ -1,0 +1,60 @@
+{
+  "timestamp": "2025-10-12T07:30:09.634Z",
+  "totalErrors": 9,
+  "errorTypes": {
+    "request_failed": 4,
+    "console_error": 4,
+    "submit_error": 1
+  },
+  "errors": [
+    {
+      "type": "request_failed",
+      "url": "http://127.0.0.1:8000/user-status/update",
+      "failure": "net::ERR_ABORTED",
+      "timestamp": "2025-10-12T07:29:31.188Z"
+    },
+    {
+      "type": "request_failed",
+      "url": "http://127.0.0.1:8000/user-status/update",
+      "failure": "net::ERR_ABORTED",
+      "timestamp": "2025-10-12T07:29:31.188Z"
+    },
+    {
+      "type": "console_error",
+      "message": "خطأ في تحديث الحالة: TypeError: Failed to fetch\n    at UserStatusManager.updateStatus (http://127.0.0.1:8000/js/user-status.js:40:36)\n    at http://127.0.0.1:8000/js/user-status.js:22:18",
+      "timestamp": "2025-10-12T07:29:31.188Z"
+    },
+    {
+      "type": "console_error",
+      "message": "خطأ في تحديث الحالة: TypeError: Failed to fetch\n    at UserStatusManager.updateStatus (http://127.0.0.1:8000/js/user-status.js:40:36)\n    at HTMLDocument.<anonymous> (http://127.0.0.1:8000/js/user-status.js:30:22)",
+      "timestamp": "2025-10-12T07:29:31.188Z"
+    },
+    {
+      "type": "request_failed",
+      "url": "https://cdn.jsdelivr.net/gh/gitbootstrap/bootstrap-toggle@2.2.2/css/bootstrap-toggle.min.css",
+      "failure": "net::ERR_BLOCKED_BY_ORB",
+      "timestamp": "2025-10-12T07:29:32.272Z"
+    },
+    {
+      "type": "request_failed",
+      "url": "https://cdn.jsdelivr.net/gh/gitbootstrap/bootstrap-toggle@2.2.2/js/bootstrap-toggle.min.js",
+      "failure": "net::ERR_BLOCKED_BY_ORB",
+      "timestamp": "2025-10-12T07:29:32.274Z"
+    },
+    {
+      "type": "console_error",
+      "message": "خطأ في جلب الإشعارات: TypeError: Cannot read properties of undefined (reading 'forEach')\n    at updateDropdownMenu (http://127.0.0.1:8000/js/notifications.js:55:23)\n    at updateNotificationUI (http://127.0.0.1:8000/js/notifications.js:37:13)\n    at fetchNotifications (http://127.0.0.1:8000/js/notifications.js:15:17)",
+      "timestamp": "2025-10-12T07:29:32.755Z"
+    },
+    {
+      "type": "console_error",
+      "message": "خطأ في جلب الإشعارات: TypeError: Cannot read properties of undefined (reading 'forEach')\n    at updateDropdownMenu (http://127.0.0.1:8000/js/notifications.js:55:23)\n    at updateNotificationUI (http://127.0.0.1:8000/js/notifications.js:37:13)\n    at fetchNotifications (http://127.0.0.1:8000/js/notifications.js:15:17)",
+      "timestamp": "2025-10-12T07:30:02.526Z"
+    },
+    {
+      "type": "submit_error",
+      "message": "page.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator('button[type=\"submit\"]')\n    - locator resolved to 2 elements. Proceeding with the first one: <button type=\"submit\" class=\"dropdown-item text-danger\">…</button>\n  - attempting click action\n    2 × waiting for element to be visible, enabled and stable\n      - element is not visible\n    - retrying click action\n    - waiting 20ms\n    2 × waiting for element to be visible, enabled and stable\n      - element is not visible\n    - retrying click action\n      - waiting 100ms\n    57 × waiting for element to be visible, enabled and stable\n       - element is not visible\n     - retrying click action\n       - waiting 500ms\n",
+      "timestamp": "2025-10-12T07:30:09.390Z"
+    }
+  ]
+}

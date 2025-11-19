@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تفاصيل التذكرة - #{{ ticket.ticketNumber }}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .ticket-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+        .thread-card {
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: none;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+        .thread-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .thread-type-email { border-left: 4px solid #007bff; }
+        .thread-type-note { border-left: 4px solid #28a745; }
+        .thread-type-reply { border-left: 4px solid #ffc107; }
+        .thread-type-system { border-left: 4px solid #6c757d; }
+        .loading {
+            text-align: center;
+            padding: 2rem;
+        }
+        .spinner-border {
+            width: 3rem;
+            height: 3rem;
+        }
+        .thread-content-preview {
+            max-height: 100px;
+            overflow: hidden;
+            position: relative;
+        }
+        .thread-content-preview::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 20px;
+            background: linear-gradient(transparent, white);
+        }
+    </style>
+</head>
+<body>
+    <div class="ticket-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h1><i class="fas fa-ticket-alt"></i> التذكرة #{{ ticket.ticketNumber }}</h1>
+                            <p class="lead mb-0">{{ ticket.subject or 'بدون عنوان' }}</p>
+                        </div>
+                        <div class="text-end">
+                            <span class="badge bg-light text-dark fs-6 mb-2 d-block">
+                                {{ ticket.status or 'غير محدد' }}
+                            </span>
+                            <br>
+                            <small>
+                                <i class="fas fa-calendar"></i> 
+                                {{ ticket.createdTime[:10] if ticket.createdTime else 'غير محدد' }}
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5><i class="fas fa-info-circle"></i> معلومات التذكرة</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <strong>الرقم:</strong> #{{ ticket.ticketNumber }}<br>
+                            <strong>الحالة:</strong> {{ ticket.status or 'غير محدد' }}<br>
+                            <strong>الأولوية:</strong> {{ ticket.priority or 'غير محدد' }}<br>
+                            <strong>تاريخ الإنشاء:</strong> {{ ticket.createdTime[:19] if ticket.createdTime else 'غير محدد' }}
+                        </div>
+                        
+                        {% if ticket.contact %}
+                        <div class="mb-3">
+                            <strong>العميل:</strong><br>
+                            {{ ticket.contact.name or 'غير محدد' }}<br>
+                            <small class="text-muted">{{ ticket.contact.email or '' }}</small>
+                        </div>
+                        {% endif %}
+                        
+                        {% if ticket.department %}
+                        <div class="mb-3">
+                            <strong>القسم:</strong> {{ ticket.department.name or 'غير محدد' }}
+                        </div>
+                        {% endif %}
+                        
+                        <div class="mb-3">
+                            <strong>عدد الخيوط:</strong> {{ threads|length }}
+                        </div>
+                        
+                        <!-- Ticket Actions -->
+                        <div class="mt-4">
+                            <h6><i class="fas fa-cogs"></i> إجراءات التذكرة</h6>
+                            <div class="d-grid gap-2">
+                                {% if ticket.status != 'Closed' %}
+                                <button class="btn btn-danger btn-sm" onclick="closeTicket('{{ ticket.id }}')">
+                                    <i class="fas fa-times-circle"></i> إغلاق التذكرة
+                                </button>
+                                {% else %}
+                                <button class="btn btn-success btn-sm" onclick="reopenTicket('{{ ticket.id }}')">
+                                    <i class="fas fa-undo"></i> إعادة فتح التذكرة
+                                </button>
+                                {% endif %}
+                                
+                                <button class="btn btn-warning btn-sm" onclick="showStatusModal('{{ ticket.id }}')">
+                                    <i class="fas fa-edit"></i> تغيير الحالة
+                                </button>
+                                
+                                <button class="btn btn-info btn-sm" onclick="showCommentModal('{{ ticket.id }}')">
+                                    <i class="fas fa-comment"></i> إضافة تعليق
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-8">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h3><i class="fas fa-comments"></i> الخيوط ({{ threads|length }})</h3>
+                    <button class="btn btn-primary" onclick="refreshThreads()">
+                        <i class="fas fa-sync-alt"></i> تحديث
+                    </button>
+                </div>
+                
+                <div id="loading" class="loading" style="display: none;">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">جاري التحميل...</span>
+                    </div>
+                    <p class="mt-2">جاري جلب الخيوط...</p>
+                </div>
+                
+                <div id="threads-container">
+                    {% if threads %}
+                        {% for thread in threads %}
+                        <div class="card thread-card thread-type-{{ thread.type or 'email' }}">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <div>
+                                        <h6 class="card-title mb-1">
+                                            <i class="fas fa-{{ 'envelope' if thread.type == 'Email' else 'sticky-note' if thread.type == 'Note' else 'reply' if thread.type == 'Reply' else 'cog' }}"></i>
+                                            {{ thread.type or 'بريد إلكتروني' }}
+                                        </h6>
+                                        <small class="text-muted">
+                                            <i class="fas fa-user"></i> 
+                                            {{ thread.fromAddress or thread.from or 'غير محدد' }}
+                                        </small>
+                                    </div>
+                                    <div class="text-end">
+                                        <small class="text-muted">
+                                            <i class="fas fa-clock"></i> 
+                                            {{ thread.createdTime[:19] if thread.createdTime else 'غير محدد' }}
+                                        </small>
+                                    </div>
+                                </div>
+                                
+                                {% if thread.subject %}
+                                <div class="mb-2">
+                                    <strong>الموضوع:</strong> {{ thread.subject }}
+                                </div>
+                                {% endif %}
+                                
+                                <div class="thread-content-preview mb-3">
+                                    {% if thread.content %}
+                                        {{ thread.content[:200]|safe }}
+                                        {% if thread.content|length > 200 %}...{% endif %}
+                                    {% else %}
+                                        <em class="text-muted">لا يوجد محتوى</em>
+                                    {% endif %}
+                                </div>
+                                
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <small class="text-muted">
+                                        {% if thread.toAddress %}
+                                            <i class="fas fa-paper-plane"></i> إلى: {{ thread.toAddress }}
+                                        {% endif %}
+                                    </small>
+                                    <button class="btn btn-outline-primary btn-sm" 
+                                            onclick="viewFullThread('{{ ticket.id }}', '{{ thread.id }}')">
+                                        <i class="fas fa-expand"></i> عرض المحتوى الكامل
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="text-center py-5">
+                            <i class="fas fa-comments fa-3x text-muted mb-3"></i>
+                            <h4 class="text-muted">لا توجد خيوط</h4>
+                            <p class="text-muted">لا توجد خيوط متاحة لهذه التذكرة</p>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        
+        <div class="row mt-4">
+            <div class="col-12">
+                <a href="/" class="btn btn-secondary">
+                    <i class="fas fa-arrow-right"></i> العودة إلى قائمة التذاكر
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for full thread content -->
+    <div class="modal fade" id="threadModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="fas fa-envelope"></i> محتوى الخيط الكامل
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="threadContent">
+                        <div class="text-center">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">جاري التحميل...</span>
+                            </div>
+                            <p class="mt-2">جاري جلب المحتوى...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for status change -->
+    <div class="modal fade" id="statusModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="fas fa-edit"></i> تغيير حالة التذكرة
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="statusForm">
+                        <div class="mb-3">
+                            <label for="newStatus" class="form-label">الحالة الجديدة</label>
+                            <select class="form-select" id="newStatus" required>
+                                <option value="Open">مفتوح</option>
+                                <option value="Pending">معلق</option>
+                                <option value="Closed">مغلق</option>
+                                <option value="Resolved">محلول</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="statusComment" class="form-label">تعليق (اختياري)</label>
+                            <textarea class="form-control" id="statusComment" rows="3" 
+                                    placeholder="أضف تعليقاً حول تغيير الحالة..."></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
+                    <button type="button" class="btn btn-primary" onclick="updateTicketStatus()">تحديث الحالة</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for adding comment -->
+    <div class="modal fade" id="commentModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="fas fa-comment"></i> إضافة تعليق
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="commentForm">
+                        <div class="mb-3">
+                            <label for="ticketComment" class="form-label">التعليق</label>
+                            <textarea class="form-control" id="ticketComment" rows="4" 
+                                    placeholder="اكتب تعليقك هنا..." required></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
+                    <button type="button" class="btn btn-primary" onclick="addTicketComment()">إضافة التعليق</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let currentTicketId = '{{ ticket.id }}';
+        
+        function refreshThreads() {
+            const loading = document.getElementById('loading');
+            const container = document.getElementById('threads-container');
+            
+            loading.style.display = 'block';
+            container.style.display = 'none';
+            
+            fetch(`/api/ticket/${currentTicketId}/threads`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert('خطأ: ' + data.error);
+                        return;
+                    }
+                    
+                    // Reload the page to show updated data
+                    window.location.reload();
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('حدث خطأ أثناء تحديث الخيوط');
+                })
+                .finally(() => {
+                    loading.style.display = 'none';
+                    container.style.display = 'block';
+                });
+        }
+        
+        function closeTicket(ticketId) {
+            if (confirm('هل أنت متأكد من إغلاق هذه التذكرة؟')) {
+                const comment = prompt('أضف تعليقاً (اختياري):');
+                
+                fetch(`/api/ticket/${ticketId}/close`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        comment: comment || ''
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('تم إغلاق التذكرة بنجاح');
+                        window.location.reload();
+                    } else {
+                        alert('خطأ: ' + data.error);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('حدث خطأ أثناء إغلاق التذكرة');
+                });
+            }
+        }
+        
+        function reopenTicket(ticketId) {
+            if (confirm('هل أنت متأكد من إعادة فتح هذه التذكرة؟')) {
+                const comment = prompt('أضف تعليقاً (اختياري):');
+                
+                fetch(`/api/ticket/${ticketId}/reopen`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        comment: comment || ''
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('تم إعادة فتح التذكرة بنجاح');
+                        window.location.reload();
+                    } else {
+                        alert('خطأ: ' + data.error);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('حدث خطأ أثناء إعادة فتح التذكرة');
+                });
+            }
+        }
+        
+        function showStatusModal(ticketId) {
+            currentTicketId = ticketId;
+            const modal = new bootstrap.Modal(document.getElementById('statusModal'));
+            modal.show();
+        }
+        
+        function updateTicketStatus() {
+            const status = document.getElementById('newStatus').value;
+            const comment = document.getElementById('statusComment').value;
+            
+            fetch(`/api/ticket/${currentTicketId}/status`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    status: status,
+                    comment: comment
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('تم تحديث حالة التذكرة بنجاح');
+                    bootstrap.Modal.getInstance(document.getElementById('statusModal')).hide();
+                    window.location.reload();
+                } else {
+                    alert('خطأ: ' + data.error);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('حدث خطأ أثناء تحديث حالة التذكرة');
+            });
+        }
+        
+        function showCommentModal(ticketId) {
+            currentTicketId = ticketId;
+            const modal = new bootstrap.Modal(document.getElementById('commentModal'));
+            modal.show();
+        }
+        
+        function addTicketComment() {
+            const comment = document.getElementById('ticketComment').value;
+            
+            if (!comment.trim()) {
+                alert('يرجى إدخال تعليق');
+                return;
+            }
+            
+            fetch(`/api/ticket/${currentTicketId}/comment`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    comment: comment
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('تم إضافة التعليق بنجاح');
+                    bootstrap.Modal.getInstance(document.getElementById('commentModal')).hide();
+                    document.getElementById('ticketComment').value = '';
+                    window.location.reload();
+                } else {
+                    alert('خطأ: ' + data.error);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('حدث خطأ أثناء إضافة التعليق');
+            });
+        }
+        
+        function viewFullThread(ticketId, threadId) {
+            const modal = new bootstrap.Modal(document.getElementById('threadModal'));
+            const contentDiv = document.getElementById('threadContent');
+            
+            // Show loading
+            contentDiv.innerHTML = `
+                <div class="text-center">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">جاري التحميل...</span>
+                    </div>
+                    <p class="mt-2">جاري جلب المحتوى...</p>
+                </div>
+            `;
+            
+            modal.show();
+            
+            // Fetch thread details
+            fetch(`/api/thread/${ticketId}/${threadId}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        contentDiv.innerHTML = `
+                            <div class="alert alert-danger">
+                                <i class="fas fa-exclamation-triangle"></i> 
+                                خطأ: ${data.error}
+                            </div>
+                        `;
+                        return;
+                    }
+                    
+                    // Display thread content
+                    let content = '';
+                    
+                    if (data.subject) {
+                        content += `<div class="mb-3"><strong>الموضوع:</strong> ${data.subject}</div>`;
+                    }
+                    
+                    if (data.fromAddress) {
+                        content += `<div class="mb-3"><strong>من:</strong> ${data.fromAddress}</div>`;
+                    }
+                    
+                    if (data.toAddress) {
+                        content += `<div class="mb-3"><strong>إلى:</strong> ${data.toAddress}</div>`;
+                    }
+                    
+                    if (data.createdTime) {
+                        content += `<div class="mb-3"><strong>التاريخ:</strong> ${data.createdTime}</div>`;
+                    }
+                    
+                    content += '<hr>';
+                    
+                    if (data.content) {
+                        content += `<div class="thread-full-content">${data.content}</div>`;
+                    } else {
+                        content += '<div class="text-muted"><em>لا يوجد محتوى</em></div>';
+                    }
+                    
+                    contentDiv.innerHTML = content;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    contentDiv.innerHTML = `
+                        <div class="alert alert-danger">
+                            <i class="fas fa-exclamation-triangle"></i> 
+                            حدث خطأ أثناء جلب المحتوى
+                        </div>
+                    `;
+                });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,782 @@
+{
+    "summary": {
+        "total_users": 84,
+        "total_photos": 182,
+        "successful_matches": 81,
+        "unmatched_users": 3,
+        "unmatched_photos": 101
+    },
+    "matches": [
+        {
+            "user_id": 1,
+            "user_name": "System Administrator",
+            "user_email": "admin@company.com",
+            "photo_file": "Yassmin-Yasser.png",
+            "similarity": 0.4242424242424242,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 3,
+            "user_name": "Abdel Hamid Mohamed Abdel Hamid",
+            "user_email": "ahameed.mohamed@egyptexpresstvl.com",
+            "photo_file": "Abdel aziz abdel wahab.png",
+            "similarity": 0.7555555555555555,
+            "match_quality": "جيدة"
+        },
+        {
+            "user_id": 4,
+            "user_name": "Hanan Mohamed Ali Ibrahem",
+            "user_email": "hanan@eetglobal.net",
+            "photo_file": "Amira-Ibrahim2.png",
+            "similarity": 0.64,
+            "match_quality": "جيدة"
+        },
+        {
+            "user_id": 5,
+            "user_name": "Emad Saad El-Sayed El Refai",
+            "user_email": "emad_elrefaay@eetglobal.net",
+            "photo_file": "Ahmed-Elsayed-sakr2.png",
+            "similarity": 0.4761904761904762,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 6,
+            "user_name": "Ahmed Alaa Ali Mohamed",
+            "user_email": "ahmed.alaa@egyptexpresstvl.com",
+            "photo_file": "Alia-adel.png",
+            "similarity": 0.6666666666666667,
+            "match_quality": "جيدة"
+        },
+        {
+            "user_id": 7,
+            "user_name": "El-Sayed Mohamed Mohamed Deif",
+            "user_email": "elsayed_mohamed@eetglobal.net",
+            "photo_file": "Sayed2.png",
+            "similarity": 0.5882352941176471,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 8,
+            "user_name": "Mohamed Kamel Saleh AbdelAziz",
+            "user_email": "account@egyptexpresstvl.com",
+            "photo_file": "amal-saleh.png",
+            "similarity": 0.5333333333333333,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 9,
+            "user_name": "Yasmin Mourad Mokhtar Gaber",
+            "user_email": "creditcontrol@egyptexpresstvl.com",
+            "photo_file": "Yasmine-Murad.png",
+            "similarity": 0.5641025641025641,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 10,
+            "user_name": "Youssif Rizk Ayad",
+            "user_email": "Egy Ball@company.com",
+            "photo_file": "Yousra-Khaled.png",
+            "similarity": 0.5517241379310345,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 11,
+            "user_name": "Ashraf Shafie Mohamed Mahmoud",
+            "user_email": "ashraf.shafai@egyptexpresstvl.com",
+            "photo_file": "Ashraf-Gomaa.png",
+            "similarity": 0.5,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 12,
+            "user_name": "Ahmed Maher Saad Fahmy",
+            "user_email": "a.maher@egyptexpresstvl.com",
+            "photo_file": "Esraa Fouad.png",
+            "similarity": 0.5185185185185186,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 13,
+            "user_name": "Ahmed Mohamed Ahmed Dieb",
+            "user_email": "trans@egyptexpresstvl.com",
+            "photo_file": "Dina-Ehab-Mohamed.png",
+            "similarity": 0.4210526315789474,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 14,
+            "user_name": "Heba Mohamed Ezzat Hal",
+            "user_email": "heba@eetglobal.net",
+            "photo_file": "Heba Hamdi Rifay.png",
+            "similarity": 0.4666666666666666,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 15,
+            "user_name": "Ahmed El-Sayed Abdel Rahim Mohamed",
+            "user_email": "Ahmed.s@egyptexpresstvl.com",
+            "photo_file": "Abdelrahman2.png",
+            "similarity": 0.6,
+            "match_quality": "جيدة"
+        },
+        {
+            "user_id": 16,
+            "user_name": "Islam Ehab Ahmed Mohamed",
+            "user_email": "Islam.ElNesr@egyptexpresstvl.com",
+            "photo_file": "Islam-mosad.png",
+            "similarity": 0.6,
+            "match_quality": "جيدة"
+        },
+        {
+            "user_id": 17,
+            "user_name": "Ahmed Hamdy Abdulhamed",
+            "user_email": "Ahmed.Hamdy@egyptexpresstvl.com",
+            "photo_file": "Mahmoud-Abd-El-Hakim.png",
+            "similarity": 0.6060606060606061,
+            "match_quality": "جيدة"
+        },
+        {
+            "user_id": 18,
+            "user_name": "Amira Hamdy Elsayed Ahmed",
+            "user_email": "btb@egyptexpresstvl.com",
+            "photo_file": "Amira-Handy.jpg",
+            "similarity": 0.6206896551724138,
+            "match_quality": "جيدة"
+        },
+        {
+            "user_id": 19,
+            "user_name": "Mohamed Anwar Awad Baioumy",
+            "user_email": "m.anwar@egyptexpresstvl.com",
+            "photo_file": "Rawda-Ibrahim.png",
+            "similarity": 0.4666666666666666,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 20,
+            "user_name": "Rami Sayed Ali Hassan",
+            "user_email": "it@egyptexpresstvl.com",
+            "photo_file": "Kareem-Saeed.png",
+            "similarity": 0.5714285714285715,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 21,
+            "user_name": "Essam Ibreahim",
+            "user_email": "1021@company.com",
+            "photo_file": "sarah-weliam.png",
+            "similarity": 0.56,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 22,
+            "user_name": "Ahmed Adel Abulhamed",
+            "user_email": "1023@company.com",
+            "photo_file": "Abdelrahman-Mohamed.png",
+            "similarity": 0.625,
+            "match_quality": "جيدة"
+        },
+        {
+            "user_id": 23,
+            "user_name": "Abdelrahman Mohamed Elsayed Ismael",
+            "user_email": "714@company.com",
+            "photo_file": "AbdelHameed-Mohamed.png",
+            "similarity": 0.5909090909090909,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 24,
+            "user_name": "Moustafa Magdy Abd El Hamed El Garb",
+            "user_email": "admin@eetglobal.com",
+            "photo_file": "Mostafa-Magdy.png",
+            "similarity": 0.5106382978723404,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 25,
+            "user_name": "Khaled Ahmed Mohamed",
+            "user_email": "Khaled_ahmed@egyptexpresstvl.com",
+            "photo_file": "Nada-Khaled.png",
+            "similarity": 0.75,
+            "match_quality": "جيدة"
+        },
+        {
+            "user_id": 26,
+            "user_name": "Rania Abdel Mohsen Mahmoud Abd El Mohsen Mahmoud",
+            "user_email": "rania@egyptexpresstvl.com",
+            "photo_file": "Mai-Abdelmoneim-Hamdi-Elbana.png",
+            "similarity": 0.4383561643835616,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 27,
+            "user_name": "Zied Mustafa Ali",
+            "user_email": "ziad.mostafa@egyptexpresstvl.com",
+            "photo_file": "Merna-Mostafa.png",
+            "similarity": 0.5833333333333334,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 28,
+            "user_name": "Lamiaa Hussein Ali",
+            "user_email": "lamiaa.gharib@egyptexpresstvl.com",
+            "photo_file": "Lamiaa-houssam.png",
+            "similarity": 0.7407407407407408,
+            "match_quality": "جيدة"
+        },
+        {
+            "user_id": 29,
+            "user_name": "Wafaa Mohamed Naguib Osman",
+            "user_email": "wafaa@egyptexpresstvl.com",
+            "photo_file": "Mostafa-Osama.png",
+            "similarity": 0.4666666666666666,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 30,
+            "user_name": "Yara Ahmed Abderab El Naby Abd El Rahman",
+            "user_email": "contracting@egyptexpresstvl.net",
+            "photo_file": "Abdelrahamn-Youssef.png",
+            "similarity": 0.3846153846153846,
+            "match_quality": "ضعيفة"
+        },
+        {
+            "user_id": 31,
+            "user_name": "Nayra Ahmed Mabrouk Hamed",
+            "user_email": "Nayera.Ahmed@eetglobal.net",
+            "photo_file": "Menna-Mohamed.png",
+            "similarity": 0.5806451612903225,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 32,
+            "user_name": "Abd El Rahman Mohamed Mohamed Khaled",
+            "user_email": "1010@company.com",
+            "photo_file": "Yara-Khaled.png",
+            "similarity": 0.6,
+            "match_quality": "جيدة"
+        },
+        {
+            "user_id": 33,
+            "user_name": "Mohamed Fathy Mohamed El Toukhy",
+            "user_email": "m.fathi@egyptexpresstvl.com",
+            "photo_file": "Fathi-Yasser.png",
+            "similarity": 0.4615384615384615,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 34,
+            "user_name": "Reham Magdy Abdo Swilam",
+            "user_email": "reham@egyptexpresstvl.com",
+            "photo_file": "Mariam Yasser Nabih.png",
+            "similarity": 0.42857142857142855,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 35,
+            "user_name": "Nada Mahmoud Ibrahem El Hoseny",
+            "user_email": "910@company.com",
+            "photo_file": "Mahmoud-Kamel.png",
+            "similarity": 0.5238095238095238,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 36,
+            "user_name": "Mayada Adel Mohamed Barakat",
+            "user_email": "958@company.com",
+            "photo_file": "Mayada-Adel.png",
+            "similarity": 0.6896551724137931,
+            "match_quality": "جيدة"
+        },
+        {
+            "user_id": 37,
+            "user_name": "Shaimaa Waleed Amer Kassem",
+            "user_email": "647@company.com",
+            "photo_file": "shaimaa-mostafa.png",
+            "similarity": 0.45,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 38,
+            "user_name": "Amira Ahmed Ibrahim",
+            "user_email": "403@company.com",
+            "photo_file": "Ibrahim-Ayman.png",
+            "similarity": 0.56,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 39,
+            "user_name": "Rania Mohamed Seif El Dien Ali",
+            "user_email": "539@company.com",
+            "photo_file": "Rania-Mohammed.png",
+            "similarity": 0.4516129032258065,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 40,
+            "user_name": "Mousad Soliman Abdel Ghany Abd El Meged",
+            "user_email": "m.soliman@egyptexpresstvl.com",
+            "photo_file": "Mohamed-Alaaelden--Mohamed.png",
+            "similarity": 0.4516129032258065,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 41,
+            "user_name": "Tarek Mostafa Taha Abd El Gawad",
+            "user_email": "tarek.mostafa@egyptexpresstvl.com",
+            "photo_file": "mariam-mostafa2.png",
+            "similarity": 0.40909090909090906,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 42,
+            "user_name": "Mai Zeyada El sayed Zeyada",
+            "user_email": "mai.zayada@mztourism.com",
+            "photo_file": "Mayada-Adel2.png",
+            "similarity": 0.4444444444444444,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 43,
+            "user_name": "Habiba Alaa Ali Abd El Aziz",
+            "user_email": "cotracting@eetglobal.net",
+            "photo_file": "Habiba-Alaa.png",
+            "similarity": 0.6060606060606061,
+            "match_quality": "جيدة"
+        },
+        {
+            "user_id": 44,
+            "user_name": "Karim Mohamed Ali Mostafa",
+            "user_email": "kareem@eetglobal.net",
+            "photo_file": "mariam-mostafa3.png",
+            "similarity": 0.8461538461538461,
+            "match_quality": "ممتازة"
+        },
+        {
+            "user_id": 45,
+            "user_name": "Amr Atef Elsayed Ali",
+            "user_email": "Amr.Atef@eetglobal.net",
+            "photo_file": "Mustafa-Sayed.png",
+            "similarity": 0.5,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 46,
+            "user_name": "Ahmed El-Sayed Ahmed  El-Sayed",
+            "user_email": "internetdept@eetglobal.net",
+            "photo_file": "AbdelHameed-Mohamed2.png",
+            "similarity": 0.48484848484848486,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 47,
+            "user_name": "Mariam Mostafa Mohamed Abd El Ghany",
+            "user_email": "marketing@egyptexpresstvl.com",
+            "photo_file": "mariam-mostafa4.png",
+            "similarity": 0.65,
+            "match_quality": "جيدة"
+        },
+        {
+            "user_id": 82,
+            "user_name": "Mohamed Rafat Dessouky Dessouky",
+            "user_email": "account1@egyptexpresstvl.com",
+            "photo_file": "Mohamed-El-Dessouky.png",
+            "similarity": 0.45,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 83,
+            "user_name": "Omar Essam Hassan Ahmed",
+            "user_email": "account2@egyptexpresstvl.com",
+            "photo_file": "Mohamed-Ossama.png",
+            "similarity": 0.6086956521739131,
+            "match_quality": "جيدة"
+        },
+        {
+            "user_id": 84,
+            "user_name": "Eslam Mohamed Kamel Mohamed",
+            "user_email": "account3@egyptexpresstvl.com",
+            "photo_file": "Mahmoud-Kamel2.png",
+            "similarity": 0.6086956521739131,
+            "match_quality": "جيدة"
+        },
+        {
+            "user_id": 85,
+            "user_name": "Abanoub Saad Lotfy Tawfik",
+            "user_email": "account4@egyptexpresstvl.com",
+            "photo_file": "Asmaa Ahmed Lotfy.png",
+            "similarity": 0.5555555555555556,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 86,
+            "user_name": "Kareem Saeed Hassan Mohamed",
+            "user_email": "account5@egyptexpresstvl.com",
+            "photo_file": "emad.png",
+            "similarity": 0.5,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 87,
+            "user_name": "Mohamed Ashraf El-Dessouky Tolpa",
+            "user_email": "account6@egyptexpresstvl.com",
+            "photo_file": "Bishoy-Atef-Soliman.png",
+            "similarity": 0.4,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 88,
+            "user_name": "Viola Fayez Awad Garges",
+            "user_email": "btb1@egyptexpresstvl.com",
+            "photo_file": "Viola-Fayez.png",
+            "similarity": 0.6060606060606061,
+            "match_quality": "جيدة"
+        },
+        {
+            "user_id": 89,
+            "user_name": "Hesham Talaat Hussein Hassan",
+            "user_email": "btb2@egyptexpresstvl.com",
+            "photo_file": "Hager-Talaat.png",
+            "similarity": 0.5,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 90,
+            "user_name": "Hadir Mostafa Ahmed El Mokadem",
+            "user_email": "btb3@egyptexpresstvl.com",
+            "photo_file": "mariam-mostafa5.png",
+            "similarity": 0.48648648648648646,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 91,
+            "user_name": "Aya Allah Ashraf Mohamed El Awady",
+            "user_email": "btb4@egyptexpresstvl.com",
+            "photo_file": "Salma-Ashrafe.png",
+            "similarity": 0.5405405405405406,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 92,
+            "user_name": "Sherif Ibrahim Abbas",
+            "user_email": "btb5@egyptexpresstvl.com",
+            "photo_file": "shimaa.png",
+            "similarity": 0.4615384615384615,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 93,
+            "user_name": "Nada Magady Ibrahim Abdullah",
+            "user_email": "btb6@egyptexpresstvl.com",
+            "photo_file": "Asmaa-Ahmed-Lotfy2.png",
+            "similarity": 0.4186046511627907,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 94,
+            "user_name": "Sayed Khalifa Sayed Khalifa",
+            "user_email": "it1@egyptexpresstvl.com",
+            "photo_file": "Alia-adel2.png",
+            "similarity": 0.4,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 95,
+            "user_name": "Barkat Ramadan Barkat Baioumy",
+            "user_email": "it2@egyptexpresstvl.com",
+            "photo_file": "Barakat-Ramadan.png",
+            "similarity": 0.6046511627906976,
+            "match_quality": "جيدة"
+        },
+        {
+            "user_id": 96,
+            "user_name": "Ahmed Gomaa Riad AbdelHaleem",
+            "user_email": "admin1@eetglobal.com",
+            "photo_file": "Marwa-Abdelraouf.png",
+            "similarity": 0.48648648648648646,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 97,
+            "user_name": "Amal Saleh Fargaly Salah",
+            "user_email": "admin2@eetglobal.com",
+            "photo_file": "Ayman-Farah2.png",
+            "similarity": 0.4705882352941177,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 98,
+            "user_name": "Noha Fathy El Sayed Gad",
+            "user_email": "admin3@eetglobal.com",
+            "photo_file": "Mohamed-Yehia.png",
+            "similarity": 0.4,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 99,
+            "user_name": "Mohamed Mahmoud Ibrahim AbdelHameed",
+            "user_email": "admin4@eetglobal.com",
+            "photo_file": "Mahmoud-Alaa-El-Din..png",
+            "similarity": 0.5581395348837209,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 100,
+            "user_name": "Ayman Ashraf Farouk Labib",
+            "user_email": "admin5@eetglobal.com",
+            "photo_file": "Fatma-ElZahraa-Marouf.png",
+            "similarity": 0.5,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 101,
+            "user_name": "Waleed Khalaf Hassan AbdelAziz",
+            "user_email": "admin6@eetglobal.com",
+            "photo_file": "Taha-Ahmed-Elotify.png",
+            "similarity": 0.4102564102564103,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 102,
+            "user_name": "Gamal Mosallhy El-Sayed Zalat",
+            "user_email": "trans1@egyptexpresstvl.com",
+            "photo_file": "Riham-Medhat2.png",
+            "similarity": 0.358974358974359,
+            "match_quality": "ضعيفة"
+        },
+        {
+            "user_id": 103,
+            "user_name": "Mohamed Morsi Mohamed Morsi",
+            "user_email": "trans2@egyptexpresstvl.com",
+            "photo_file": "marina-maher.png",
+            "similarity": 0.45454545454545453,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 104,
+            "user_name": "Ahmed Hussein Madbouly Sayed",
+            "user_email": "trans3@egyptexpresstvl.com",
+            "photo_file": "Ahmad-Al-Sheikh2.png",
+            "similarity": 0.4,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 105,
+            "user_name": "Nancy Nagy Rizk Garges",
+            "user_email": "contracting1@egyptexpresstvl.net",
+            "photo_file": "Naira-contracting.png",
+            "similarity": 0.3157894736842105,
+            "match_quality": "ضعيفة"
+        },
+        {
+            "user_id": 106,
+            "user_name": "Louay Atef Mohamed Sharif",
+            "user_email": "cotracting1@eetglobal.net",
+            "photo_file": "Salma-Ashrafe2.png",
+            "similarity": 0.48275862068965514,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 107,
+            "user_name": "Salma Ahmed Abdel Aziz El Sayed",
+            "user_email": "cotracting2@eetglobal.net",
+            "photo_file": "Mai-Abdelmoneim-Hamdi-Elbana2.png",
+            "similarity": 0.48,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 108,
+            "user_name": "Yara Khaled Abd El Aziz Matwaly",
+            "user_email": "cotracting3@eetglobal.net",
+            "photo_file": "Yara-Khaled2.png",
+            "similarity": 0.4878048780487805,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 109,
+            "user_name": "Monica Ashraf Ezzat Gerges",
+            "user_email": "cotracting4@eetglobal.net",
+            "photo_file": "madona-nashaat.png",
+            "similarity": 0.5128205128205129,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 110,
+            "user_name": "Aisha Mohamed Hesham Mohamed",
+            "user_email": "cotracting5@eetglobal.net",
+            "photo_file": "Aisha.png",
+            "similarity": 0.5882352941176471,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 111,
+            "user_name": "Asmaa Hassan Ismail Swiefy",
+            "user_email": "internetdept1@eetglobal.net",
+            "photo_file": "Asmaa-Hassan-Ismail.png",
+            "similarity": 0.6111111111111112,
+            "match_quality": "جيدة"
+        },
+        {
+            "user_id": 112,
+            "user_name": "Mostafa Osama Hamdy Bahloul",
+            "user_email": "internetdept2@eetglobal.net",
+            "photo_file": "Sarah-Osama.png",
+            "similarity": 0.4324324324324324,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 113,
+            "user_name": "Asmaa Ahmed Lotfy Mohamed",
+            "user_email": "internetdept3@eetglobal.net",
+            "photo_file": "gamal.png",
+            "similarity": 0.5,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 114,
+            "user_name": "Madonna Nashaat Anwer Seha",
+            "user_email": "marketing1@egyptexpresstvl.com",
+            "photo_file": "madona-nashaat2.png",
+            "similarity": 0.6666666666666667,
+            "match_quality": "جيدة"
+        },
+        {
+            "user_id": 115,
+            "user_name": "Ahmed Shawky Dahy Mahmoud",
+            "user_email": "marketing2@egyptexpresstvl.com",
+            "photo_file": "Salma-Ahmed.png",
+            "similarity": 0.48275862068965514,
+            "match_quality": "متوسطة"
+        },
+        {
+            "user_id": 116,
+            "user_name": "Admin User",
+            "user_email": "admin@stafftobia.com",
+            "photo_file": "Yasmine-Murad2.png",
+            "similarity": 0.5454545454545454,
+            "match_quality": "متوسطة"
+        }
+    ],
+    "unmatched_users": [
+        {
+            "user_id": 2,
+            "user_name": "Ahmed Mohamed",
+            "user_email": "ahmed.mohamed@company.com",
+            "reason": "لا توجد صورة مناسبة"
+        },
+        {
+            "user_id": 117,
+            "user_name": "مورد التقنية",
+            "user_email": "tech.supplier@example.com",
+            "reason": "تشابه منخفض: 0.06"
+        },
+        {
+            "user_id": 118,
+            "user_name": "مورد الأجهزة",
+            "user_email": "hardware.supplier@example.com",
+            "reason": "تشابه منخفض: 0.06"
+        }
+    ],
+    "unmatched_photos": [
+        "AHMED-FAKHRY.png",
+        "Ahmed-Abd-al-manaem.png",
+        "Ahmed-Eid.png",
+        "Ahmed-Gomaa2.png",
+        "Ahmed-Shawky.png",
+        "Ahmed-Shawky2.png",
+        "Ahmed-Shawky3.png",
+        "Ahmed-Yasser.png",
+        "Ahmed-ragab.png",
+        "Arbsima.png",
+        "Barakat-Ramadan2.png",
+        "Bishoy-Atef-Soliman2.png",
+        "Ekram-Fouad.png",
+        "Esraa.png",
+        "Esraa2.png",
+        "Esraa3.png",
+        "Farah-Qadri.png",
+        "Fathi-Yasser2.png",
+        "Habiba-Alaa2.png",
+        "Hager-Talaat2.png",
+        "Hazem-Tamer.png",
+        "Khaled-Ashry-Taha.png",
+        "Khaled-Ashry2.png",
+        "Lamiaa2.png",
+        "Mahitab-mohamed.png",
+        "Mai-Abdelmoneim-Hamdi-Elbana3.png",
+        "Mai-Hamdi2.png",
+        "Mai-Hamdi3.png",
+        "Marawan-Youssef.png",
+        "Mark-Nader (1).png",
+        "Mark-Nader.png",
+        "May-Ziadah.png",
+        "May-Ziadah2.png",
+        "Menna-Muhammad.png",
+        "Menna-Osama.png",
+        "Mohamed--Ramadan.png",
+        "Mohamed-Ahmed-Mohamed.png",
+        "Mohamed-Kamel.png",
+        "Mohamed-Morsy.png",
+        "Mohamed-Morsy2.png",
+        "Mohamed-Refaat.png",
+        "Mohamed-Refaat2.png",
+        "Monika.png",
+        "Muhamed-Gamal.png",
+        "Muhamed-Gamal2.png",
+        "Muhamed-Gamal3.png",
+        "Nada-Alaa.png",
+        "Nada-Ashraf.png",
+        "Nada-Ashraf2.png",
+        "Nada.png",
+        "Nagham-Ehab.jpg",
+        "Nagham-Ehab.png",
+        "Naira-contracting2.png",
+        "Noha.png",
+        "Nour-Morsy.png",
+        "Nour-Morsy2.png",
+        "Nour.png",
+        "Omar-Ali2.png",
+        "Phepie.png",
+        "Reem-Arafat.png",
+        "Riham.png",
+        "Salma-Ahmed2.png",
+        "Salma-Ashrafe3.png",
+        "Sarah-Ashraf.png",
+        "Sarah-Osama2.png",
+        "Sarah-Osama3.png",
+        "Sarah.png",
+        "Sayd.png",
+        "Shams.png",
+        "Shams2.png",
+        "Sondos-Gamal.png",
+        "Sondos-Gamal2.png",
+        "Yara Ahmed.png",
+        "Yara-Ahmed2.png",
+        "Yassmin-Awad.png",
+        "Youssef-Hisham.png",
+        "Youssef-Hisham2.png",
+        "Youssef.png",
+        "Youssef2.png",
+        "Youssef3.png",
+        "Youssef4.png",
+        "ahmed-btc.png",
+        "ahmed-it.png",
+        "ahmed-mohamed.png",
+        "amr.png",
+        "anan.png",
+        "gamal2.png",
+        "habiba3.png",
+        "hager.png",
+        "loay.png",
+        "madoonaa5.png",
+        "marina.png",
+        "mr.moataz.png",
+        "mrs.nadia.png",
+        "omar-ahmed.png",
+        "omar-ahmed2.png",
+        "omar-ail.png",
+        "rania.png",
+        "rania2.png",
+        "reem2.png",
+        "sarah-weliam2.png"
+    ]
+}

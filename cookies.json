@@ -1,0 +1,30 @@
+[
+    {
+        "domain": "127.0.0.1",
+        "expirationDate": 1760803735.420551,
+        "hostOnly": true,
+        "httpOnly": true,
+        "name": "laravel-session",
+        "path": "/",
+        "sameSite": "lax",
+        "secure": false,
+        "session": false,
+        "storeId": null,
+        "value": "eyJpdiI6IlVhaU1TSk5xMnpuMzZ5bEdROFNVUGc9PSIsInZhbHVlIjoidUNYT0ZCK3RidTIxNGp5RVA3VnRBZExtdnZIWi9UcUFaTWw2eWtjQ2MvU3NNSXRub0tjUDZKR3ArNWJWNVlUbDIzbUV3cytqY2lEVVZ6aXpnYytzN0VxR1REcDFBN3ZURGl1L0VCdVFMVWFlZlhZVU50emtnRzBJKzR6MEZHRzkiLCJtYWMiOiI1M2ZhZjg1ZmRhZTI0OTM0NmU5YjQxOWU3YjBhZmYxNTkyNzY5ZWM2MjNjNDNmYjE5MTIzNDc5OTVkMjU2YzllIiwidGFnIjoiIn0%3D"
+    },
+    {
+        "domain": "127.0.0.1",
+        "expirationDate": 1760803735.420375,
+        "hostOnly": true,
+        "httpOnly": false,
+        "name": "XSRF-TOKEN",
+        "path": "/",
+        "sameSite": "lax",
+        "secure": false,
+        "session": false,
+        "storeId": null,
+        "value": "eyJpdiI6IlVDSGhsZWozMU16VXFqaFZCNG1pbVE9PSIsInZhbHVlIjoiNDZ1ZVJST1h6WXBNNmdyNDRKRmVtR09ERDlGS3ZYTTU2eTdjZUp6OFFlUGlDZTU2VmZrZGgrTXFpSTFOcjU3elFhTEhhOFhoRXo1WmloZGdHcDh4WGppUjl2clA1c0twUytvYnVscUVtVVpaOHhuM2hNK1J6UFpSNldYYU9uTnAiLCJtYWMiOiIyMzE5YzYxOTJiMmM5OGRhZjg2Y2Y4MjE1M2U5NjVjZjJjYzM4MTg2NzVjYzNiNTcxYTcyNTE4ZWVlMTdhMzk0IiwidGFnIjoiIn0%3D"
+    }
+]
+
+

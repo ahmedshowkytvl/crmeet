@@ -1,0 +1,33 @@
+{
+  "timestamp": "2025-10-12T07:28:30.825Z",
+  "totalAttempts": 5,
+  "successCount": 0,
+  "failureCount": 5,
+  "errors": [
+    {
+      "attempt": 1,
+      "error": "elementHandle.click: Timeout 30000ms exceeded.\nCall log:\n  - attempting click action\n    2 × waiting for element to be visible, enabled and stable\n      - element is not visible\n    - retrying click action\n    - waiting 20ms\n    2 × waiting for element to be visible, enabled and stable\n      - element is not visible\n    - retrying click action\n      - waiting 100ms\n    57 × waiting for element to be visible, enabled and stable\n       - element is not visible\n     - retrying click action\n       - waiting 500ms\n",
+      "timestamp": "2025-10-12T07:26:12.652Z"
+    },
+    {
+      "attempt": 2,
+      "error": "elementHandle.click: Element is not attached to the DOM\nCall log:\n  - attempting click action\n    2 × waiting for element to be visible, enabled and stable\n      - element is not visible\n    - retrying click action\n    - waiting 20ms\n    2 × waiting for element to be visible, enabled and stable\n      - element is not visible\n    - retrying click action\n      - waiting 100ms\n    14 × waiting for element to be visible, enabled and stable\n       - element is not visible\n     - retrying click action\n       - waiting 500ms\n    - waiting for\" http://127.0.0.1:8000/password-accounts\" navigation to finish...\n    - navigated to \"http://127.0.0.1:8000/password-accounts/create\"\n    - waiting for element to be visible, enabled and stable\n",
+      "timestamp": "2025-10-12T07:26:33.421Z"
+    },
+    {
+      "attempt": 3,
+      "error": "elementHandle.click: Timeout 30000ms exceeded.\nCall log:\n  - attempting click action\n    2 × waiting for element to be visible, enabled and stable\n      - element is not visible\n    - retrying click action\n    - waiting 20ms\n    2 × waiting for element to be visible, enabled and stable\n      - element is not visible\n    - retrying click action\n      - waiting 100ms\n    57 × waiting for element to be visible, enabled and stable\n       - element is not visible\n     - retrying click action\n       - waiting 500ms\n",
+      "timestamp": "2025-10-12T07:27:15.489Z"
+    },
+    {
+      "attempt": 4,
+      "error": "elementHandle.click: Element is not attached to the DOM\nCall log:\n  - attempting click action\n    2 × waiting for element to be visible, enabled and stable\n      - element is not visible\n    - retrying click action\n    - waiting 20ms\n    2 × waiting for element to be visible, enabled and stable\n      - element is not visible\n    - retrying click action\n      - waiting 100ms\n    26 × waiting for element to be visible, enabled and stable\n       - element is not visible\n     - retrying click action\n       - waiting 500ms\n    - waiting for\" http://127.0.0.1:8000/password-accounts\" navigation to finish...\n    - navigated to \"http://127.0.0.1:8000/password-accounts/create\"\n    - waiting for element to be visible, enabled and stable\n",
+      "timestamp": "2025-10-12T07:27:42.437Z"
+    },
+    {
+      "attempt": 5,
+      "error": "elementHandle.click: Timeout 30000ms exceeded.\nCall log:\n  - attempting click action\n    2 × waiting for element to be visible, enabled and stable\n      - element is not visible\n    - retrying click action\n    - waiting 20ms\n    2 × waiting for element to be visible, enabled and stable\n      - element is not visible\n    - retrying click action\n      - waiting 100ms\n    56 × waiting for element to be visible, enabled and stable\n       - element is not visible\n     - retrying click action\n       - waiting 500ms\n",
+      "timestamp": "2025-10-12T07:28:24.525Z"
+    }
+  ]
+}

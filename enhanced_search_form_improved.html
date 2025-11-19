@@ -1,0 +1,89 @@
+<!-- Enhanced Search Form - Improved Version -->
+<div class="enhanced-search-container">
+    <form method="GET" action="http://127.0.0.1:8000/users" class="enhanced-search-form" id="enhancedSearchForm">
+        <input type="text" 
+               class="enhanced-search-input" 
+               name="search" 
+               value="essam" 
+               placeholder="ابحث عن المستخدمين..." 
+               autocomplete="off"
+               id="enhancedSearchInput">
+        <button class="enhanced-search-btn" type="submit" title="البحث" id="enhancedSearchBtn">
+            <i class="fas fa-search search-icon"></i>
+        </button>
+        <a href="http://127.0.0.1:8000/users" class="enhanced-search-clear" title="مسح البحث" id="enhancedClearBtn">
+            <i class="fas fa-times"></i>
+        </a>
+    </form>
+
+    <!-- Search Suggestions Dropdown -->
+    <div class="search-suggestions" id="searchSuggestions">
+        <!-- Suggestions will be populated dynamically -->
+    </div>
+</div>
+
+<!-- Search Filters -->
+<div class="search-filters">
+    <div class="filter-chip active" data-filter="all">
+        <i class="fas fa-globe"></i>
+        <span>الكل</span>
+    </div>
+    <div class="filter-chip" data-filter="active">
+        <i class="fas fa-user-check"></i>
+        <span>نشط</span>
+    </div>
+    <div class="filter-chip" data-filter="inactive">
+        <i class="fas fa-user-times"></i>
+        <span>غير نشط</span>
+    </div>
+    <div class="filter-chip" data-filter="admin">
+        <i class="fas fa-crown"></i>
+        <span>مدير</span>
+    </div>
+</div>
+
+<!-- Recent Searches -->
+<div class="recent-searches">
+    <h6><i class="fas fa-history"></i>البحث الأخير</h6>
+    <div class="recent-item" data-search="أحمد">
+        <span class="recent-text">أحمد</span>
+        <span class="recent-time">منذ 5 دقائق</span>
+    </div>
+    <div class="recent-item" data-search="محمد">
+        <span class="recent-text">محمد</span>
+        <span class="recent-time">منذ ساعة</span>
+    </div>
+    <div class="recent-item" data-search="فاطمة">
+        <span class="recent-text">فاطمة</span>
+        <span class="recent-time">منذ يوم</span>
+    </div>
+</div>
+
+<!-- Keyboard Shortcuts Help -->
+<div class="keyboard-shortcuts" id="keyboardShortcuts">
+    <div class="shortcut-item">
+        <span class="shortcut-key">Ctrl</span>
+        <span class="shortcut-key">K</span>
+        <span class="shortcut-desc">البحث السريع</span>
+    </div>
+    <div class="shortcut-item">
+        <span class="shortcut-key">Esc</span>
+        <span class="shortcut-desc">إغلاق الاقتراحات</span>
+    </div>
+    <div class="shortcut-item">
+        <span class="shortcut-key">↑</span>
+        <span class="shortcut-key">↓</span>
+        <span class="shortcut-desc">التنقل في الاقتراحات</span>
+    </div>
+    <div class="shortcut-item">
+        <span class="shortcut-key">Enter</span>
+        <span class="shortcut-desc">تأكيد البحث</span>
+    </div>
+</div>
+
+<!-- Include CSS and JS files -->
+<link rel="stylesheet" href="{{ asset('css/enhanced-search.css') }}">
+<script src="{{ asset('js/enhanced-search.js') }}"></script>
+
+
+

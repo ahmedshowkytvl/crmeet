@@ -1,0 +1,25 @@
+{
+  "total_values": 8,
+  "unique_values_count": 5,
+  "unique_values": [
+    "Nada Mahmoud",
+    "Auto Close",
+    "Amira Hamdy",
+    "Nada magdy",
+    "Hisham Talaat"
+  ],
+  "value_counts": {
+    "Nada Mahmoud": 1,
+    "Auto Close": 3,
+    "Amira Hamdy": 1,
+    "Nada magdy": 2,
+    "Hisham Talaat": 1
+  },
+  "sorted_by_count": {
+    "Auto Close": 3,
+    "Nada magdy": 2,
+    "Nada Mahmoud": 1,
+    "Amira Hamdy": 1,
+    "Hisham Talaat": 1
+  }
+}

@@ -369,8 +369,15 @@
         
         .sidebar {
             min-height: 100vh;
-            background: linear-gradient(135deg, var(--primary-color) 0%, #3ea8c4 100%);
-            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            background: radial-gradient(ellipse at center, #ffffff, #d4d4d4);
+            filter: brightness(109%);
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            color: #366F9D;
+        }
+        
+        .sidebar,
+        .sidebar *:not(.notification-badge):not(.connection-indicator):not(.spinner) {
+            color: #366F9D !important;
         }
         
         .sidebar a {

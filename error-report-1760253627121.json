@@ -1,0 +1,30 @@
+{
+  "timestamp": "2025-10-12T07:20:27.121Z",
+  "totalErrors": 4,
+  "errorTypes": {
+    "missing_element": 3,
+    "fill_form_error": 1
+  },
+  "errors": [
+    {
+      "type": "missing_element",
+      "element": "nameInput",
+      "timestamp": "2025-10-12T07:19:56.120Z"
+    },
+    {
+      "type": "missing_element",
+      "element": "urlInput",
+      "timestamp": "2025-10-12T07:19:56.121Z"
+    },
+    {
+      "type": "missing_element",
+      "element": "notesTextarea",
+      "timestamp": "2025-10-12T07:19:56.121Z"
+    },
+    {
+      "type": "fill_form_error",
+      "message": "page.fill: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator('input#name')\n",
+      "timestamp": "2025-10-12T07:20:26.873Z"
+    }
+  ]
+}

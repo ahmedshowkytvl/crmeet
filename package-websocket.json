@@ -1,0 +1,31 @@
+{
+  "name": "system-monitor-websocket",
+  "version": "1.0.0",
+  "description": "خادم WebSocket لمراقبة النظام",
+  "main": "websocket-server.js",
+  "scripts": {
+    "start": "node websocket-server.js",
+    "dev": "nodemon websocket-server.js",
+    "install-deps": "npm install ws"
+  },
+  "dependencies": {
+    "ws": "^8.14.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "keywords": [
+    "websocket",
+    "system-monitor",
+    "real-time",
+    "monitoring"
+  ],
+  "author": "System Monitor",
+  "license": "MIT"
+}
+
+
+
+
+
+

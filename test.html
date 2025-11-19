@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scroll Fade Effect</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      background-color: #111;
+      height: 200vh; /* عشان نقدر نسكرول */
+      overflow-x: hidden;
+    }
+
+    .hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #000, #222);
+    }
+
+    .hero h1 {
+      font-size: 6rem;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .next-section {
+      height: 100vh;
+      background: #f5f5f5;
+      color: #111;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <h1 id="heroText">Ahmed Showky</h1>
+  </section>
+
+  <section class="next-section">
+    <p>Welcome to the next section 🚀</p>
+  </section>
+
+  <script>
+    const heroText = document.getElementById('heroText');
+    const fadeDistance = window.innerHeight * 0.8; // يبدأ يختفي بعد 80% من ال viewport
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      const opacity = Math.max(0, 1 - scrollY / fadeDistance);
+      const translateY = scrollY * 0.3;
+
+      heroText.style.opacity = opacity;
+      heroText.style.transform = `translateY(${translateY}px)`;
+    });
+  </script>
+</body>
+</html>

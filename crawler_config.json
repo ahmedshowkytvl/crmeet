@@ -1,0 +1,52 @@
+{
+  "START_URL": "http://192.168.15.29:8000",
+  "MAX_DEPTH": 3,
+  "ALLOWED_DOMAINS": ["192.168.15.29:8000", "localhost:8000"],
+  "RATE_LIMIT_MS": 500,
+  "OUTPUT_DIR": "./mcp_output",
+  "VISIT_TIMEOUT_MS": 30000,
+  "VIEWPORT": {
+    "width": 1366,
+    "height": 768
+  },
+  "INCLUDE_A11Y": true,
+  "HEADLESS": true,
+  "LOG_LEVEL": "INFO",
+  "IMAGE_SIZE_THRESHOLD_BYTES": 1048576,
+  "FILE_SIZE_THRESHOLD": 1048576,
+  "ROBOTS_CHECK": false,
+  "AUTH": null,
+  "EXCLUDE_PATTERNS": [
+    "logout",
+    "mailto:",
+    "tel:",
+    "#",
+    ".pdf",
+    ".doc",
+    ".zip",
+    "javascript:",
+    "data:"
+  ],
+  "PERFORMANCE_THRESHOLDS": {
+    "TTFB_MS": 1500,
+    "DOM_LOAD_MS": 3000,
+    "FULL_LOAD_MS": 5000
+  },
+  "ACCESSIBILITY_RULES": {
+    "color-contrast": true,
+    "keyboard-navigation": true,
+    "aria-labels": true,
+    "image-alt": true,
+    "form-labels": true
+  }
+}
+
+
+
+
+
+
+
+
+
+

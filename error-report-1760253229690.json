@@ -1,0 +1,29 @@
+{
+  "timestamp": "2025-10-12T07:13:49.690Z",
+  "totalErrors": 4,
+  "errorTypes": {
+    "missing_element": 4
+  },
+  "errors": [
+    {
+      "type": "missing_element",
+      "element": "nameInput",
+      "timestamp": "2025-10-12T07:13:49.459Z"
+    },
+    {
+      "type": "missing_element",
+      "element": "urlInput",
+      "timestamp": "2025-10-12T07:13:49.460Z"
+    },
+    {
+      "type": "missing_element",
+      "element": "usernameInput",
+      "timestamp": "2025-10-12T07:13:49.460Z"
+    },
+    {
+      "type": "missing_element",
+      "element": "notesTextarea",
+      "timestamp": "2025-10-12T07:13:49.460Z"
+    }
+  ]
+}

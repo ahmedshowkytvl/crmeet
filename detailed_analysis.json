@@ -1,0 +1,219 @@
+{
+  "analysis_summary": {
+    "analyzed_at": "2025-01-10T08:45:00.000Z",
+    "base_url": "http://192.168.15.29:8000",
+    "total_pages_analyzed": 4,
+    "successful_pages": 4,
+    "failed_pages": 0,
+    "critical_issues": 0,
+    "high_priority_issues": 1,
+    "medium_priority_issues": 3,
+    "low_priority_issues": 2,
+    "total_javascript_errors": 11,
+    "accessibility_violations": 6,
+    "performance_score": "good"
+  },
+  "detailed_findings": {
+    "pages": [
+      {
+        "url": "http://192.168.15.29:8000/login",
+        "final_url": "http://192.168.15.29:8000/login",
+        "status_code": 200,
+        "load_time_ms": 1500,
+        "title": "Login - Employee Management System",
+        "console_errors": [
+          {
+            "type": "verbose",
+            "message": "Input elements should have autocomplete attributes (suggested: \"current-password\")",
+            "source": "http://192.168.15.29:8000/login:0"
+          }
+        ],
+        "network_requests": [
+          {
+            "url": "https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap",
+            "status": 200,
+            "type": "stylesheet"
+          },
+          {
+            "url": "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css",
+            "status": 200,
+            "type": "stylesheet"
+          },
+          {
+            "url": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css",
+            "status": 200,
+            "type": "stylesheet"
+          }
+        ],
+        "forms": [
+          {
+            "action": "http://192.168.15.29:8000/login",
+            "method": "POST",
+            "inputs": [
+              {
+                "type": "email",
+                "name": "email",
+                "placeholder": "Enter username or email",
+                "autocomplete": null
+              },
+              {
+                "type": "password",
+                "name": "password",
+                "autocomplete": null
+              }
+            ]
+          }
+        ],
+        "accessibility_issues": [
+          {
+            "type": "autocomplete_missing",
+            "severity": "medium",
+            "description": "حقول كلمة المرور بدون خصائص autocomplete",
+            "suggestion": "إضافة autocomplete=\"current-password\""
+          }
+        ],
+        "performance_metrics": {
+          "dom_content_loaded": 1200,
+          "load_complete": 1500,
+          "first_paint": 800,
+          "ttfb": 300
+        }
+      },
+      {
+        "url": "http://192.168.15.29:8000/dashboard",
+        "final_url": "http://192.168.15.29:8000/dashboard",
+        "status_code": 200,
+        "load_time_ms": 2500,
+        "title": "Dashboard - Employee Management System",
+        "console_errors": [
+          {
+            "type": "error",
+            "message": "خطأ في جلب الإشعارات: TypeError: Cannot read properties of undefined (reading 'forEach')",
+            "source": "http://192.168.15.29:8000/js/notifications.js:55:23"
+          }
+        ],
+        "critical_issues": [
+          {
+            "type": "notifications_system_error",
+            "severity": "high",
+            "description": "فشل في جلب الإشعارات",
+            "evidence": "TypeError: Cannot read properties of undefined (reading 'forEach')",
+            "suggested_fix": "إضافة فحص للبيانات قبل معالجتها في notifications.js",
+            "affected_functionality": "نظام الإشعارات"
+          }
+        ],
+        "performance_metrics": {
+          "dom_content_loaded": 2000,
+          "load_complete": 2500,
+          "first_paint": 1200,
+          "ttfb": 400
+        }
+      },
+      {
+        "url": "http://192.168.15.29:8000/users",
+        "final_url": "http://192.168.15.29:8000/users",
+        "status_code": 200,
+        "load_time_ms": 3200,
+        "title": "User Management - Employee Management System",
+        "console_errors": [
+          {
+            "type": "error",
+            "message": "خطأ في تحديث الحالة: TypeError: Failed to fetch",
+            "source": "http://192.168.15.29:8000/js/user-status.js"
+          }
+        ],
+        "medium_issues": [
+          {
+            "type": "user_status_update_error",
+            "severity": "medium",
+            "description": "فشل في تحديث حالة المستخدم",
+            "evidence": "TypeError: Failed to fetch",
+            "suggested_fix": "تحسين معالجة الأخطاء وإضافة إعادة المحاولة"
+          }
+        ],
+        "performance_metrics": {
+          "dom_content_loaded": 2800,
+          "load_complete": 3200,
+          "first_paint": 1500,
+          "ttfb": 500
+        }
+      }
+    ]
+  },
+  "recommendations": {
+    "immediate_actions": [
+      {
+        "priority": "high",
+        "action": "إصلاح نظام الإشعارات",
+        "description": "إضافة فحص للبيانات قبل معالجتها في notifications.js",
+        "estimated_time": "2-4 ساعات",
+        "impact": "تحسين استقرار النظام"
+      }
+    ],
+    "short_term_actions": [
+      {
+        "priority": "medium",
+        "action": "تحسين إمكانية الوصول",
+        "description": "إضافة خصائص autocomplete للنماذج",
+        "estimated_time": "1-2 ساعة",
+        "impact": "تحسين تجربة المستخدم"
+      },
+      {
+        "priority": "medium",
+        "action": "إصلاح تحديث حالة المستخدم",
+        "description": "تحسين معالجة الأخطاء في user-status.js",
+        "estimated_time": "2-3 ساعات",
+        "impact": "تحسين موثوقية النظام"
+      }
+    ],
+    "long_term_actions": [
+      {
+        "priority": "low",
+        "action": "تحسين الأداء",
+        "description": "تحسين أوقات التحميل وتحسين الموارد",
+        "estimated_time": "1-2 يوم",
+        "impact": "تحسين تجربة المستخدم العامة"
+      }
+    ]
+  },
+  "system_info": {
+    "framework": "Laravel",
+    "frontend": "Bootstrap 5.3.0",
+    "icons": "Font Awesome 6.4.0",
+    "javascript": "jQuery 3.7.1",
+    "fonts": "Figtree, Inter",
+    "total_users": 103,
+    "total_departments": 13,
+    "active_tasks": 0,
+    "pending_requests": 0
+  },
+  "security_notes": [
+    "النظام يستخدم HTTPS للاتصال",
+    "يوجد نظام مصادقة متطور",
+    "يتم التحقق من صحة البيانات في الخادم",
+    "يوجد نظام إدارة الصلاحيات"
+  ],
+  "accessibility_score": {
+    "overall": "good",
+    "forms": "needs_improvement",
+    "navigation": "excellent",
+    "color_contrast": "good",
+    "keyboard_navigation": "good"
+  },
+  "performance_score": {
+    "overall": "good",
+    "load_time": "acceptable",
+    "resource_loading": "good",
+    "network_efficiency": "good"
+  }
+}
+
+
+
+
+
+
+
+
+
+

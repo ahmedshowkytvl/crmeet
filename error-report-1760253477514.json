@@ -1,0 +1,14 @@
+{
+  "timestamp": "2025-10-12T07:17:57.514Z",
+  "totalErrors": 1,
+  "errorTypes": {
+    "fill_form_error": 1
+  },
+  "errors": [
+    {
+      "type": "fill_form_error",
+      "message": "page.fill: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator('input[name=\"name\"]')\n",
+      "timestamp": "2025-10-12T07:17:57.280Z"
+    }
+  ]
+}

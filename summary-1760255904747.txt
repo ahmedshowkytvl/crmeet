@@ -1,0 +1,50 @@
+=== ملخص الاختبار التفصيلي ===
+التاريخ: ١٢‏/١٠‏/٢٠٢٥، ١٠:٥٨:٢٤ ص
+المحاولات: 2
+النجاح: 0
+الفشل: 2
+إجمالي اللوجز: 23
+إجمالي شبكة: 264
+إجمالي الأخطاء: 16
+
+=== الأخطاء الرئيسية ===
+1. network_error: net::ERR_BLOCKED_BY_ORB
+2. network_error: net::ERR_BLOCKED_BY_ORB
+3. network_error: net::ERR_ABORTED
+4. network_error: net::ERR_ABORTED
+5. network_error: net::ERR_BLOCKED_BY_ORB
+6. network_error: net::ERR_BLOCKED_BY_ORB
+7. network_error: net::ERR_ABORTED
+8. network_error: net::ERR_BLOCKED_BY_ORB
+9. network_error: net::ERR_BLOCKED_BY_ORB
+10. network_error: net::ERR_ABORTED
+11. network_error: net::ERR_ABORTED
+12. network_error: net::ERR_BLOCKED_BY_ORB
+13. network_error: net::ERR_BLOCKED_BY_ORB
+14. network_error: net::ERR_ABORTED
+15. network_error: net::ERR_BLOCKED_BY_ORB
+16. network_error: net::ERR_BLOCKED_BY_ORB
+
+=== آخر 10 لوجز ===
+[error] خطأ في تحديث الحالة: TypeError: Failed to fetch
+    at UserStatusManager.updateStatus (http://127.0.0.1:8000/js/user-status.js:40:36)
+    at HTMLDocument.<anonymous> (http://127.0.0.1:8000/js/user-status.js:30:22)
+[error] خطأ في تحديث الحالة: TypeError: Failed to fetch
+    at UserStatusManager.updateStatus (http://127.0.0.1:8000/js/user-status.js:40:36)
+    at http://127.0.0.1:8000/js/user-status.js:22:18
+[verbose] [DOM] Input elements should have autocomplete attributes (suggested: "current-password"): (More info: https://goo.gl/9p2vKq) %o
+[error] خطأ في جلب الإشعارات: TypeError: Cannot read properties of undefined (reading 'forEach')
+    at updateDropdownMenu (http://127.0.0.1:8000/js/notifications.js:55:23)
+    at updateNotificationUI (http://127.0.0.1:8000/js/notifications.js:37:13)
+    at fetchNotifications (http://127.0.0.1:8000/js/notifications.js:15:17)
+[log] تم تحديث حالتك إلى عبر الإنترنت
+[log] تم تحديث حالتك إلى خارج الإنترنت
+[error] خطأ في تحديث الحالة: TypeError: Failed to fetch
+    at UserStatusManager.updateStatus (http://127.0.0.1:8000/js/user-status.js:40:36)
+    at HTMLDocument.<anonymous> (http://127.0.0.1:8000/js/user-status.js:30:22)
+[verbose] [DOM] Input elements should have autocomplete attributes (suggested: "current-password"): (More info: https://goo.gl/9p2vKq) %o
+[error] خطأ في جلب الإشعارات: TypeError: Cannot read properties of undefined (reading 'forEach')
+    at updateDropdownMenu (http://127.0.0.1:8000/js/notifications.js:55:23)
+    at updateNotificationUI (http://127.0.0.1:8000/js/notifications.js:37:13)
+    at fetchNotifications (http://127.0.0.1:8000/js/notifications.js:15:17)
+[log] تم تحديث حالتك إلى عبر الإنترنت

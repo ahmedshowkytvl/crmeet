@@ -1,0 +1,10 @@
+{
+  "collection_date": "2025-10-08T18:01:01.517702",
+  "total_tickets_requested": 20,
+  "total_tickets_collected": 20,
+  "total_threads_collected": 27,
+  "failed_tickets": [],
+  "failed_count": 0,
+  "success_rate": "100.0%",
+  "average_threads_per_ticket": 1.35
+}

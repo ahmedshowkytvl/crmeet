@@ -1,0 +1,15 @@
+URL,Status,Load_Time_MS,Console_Errors,Network_Errors,Accessibility_Issues,Forms_Count,Links_Count,Primary_Issue,Severity,Description
+http://192.168.15.29:8000/login,200,1500,2,0,2,1,8,autocomplete_missing,medium,نماذج بدون خصائص autocomplete
+http://192.168.15.29:8000/register,200,1800,2,0,2,1,5,autocomplete_missing,medium,نماذج بدون خصائص autocomplete
+http://192.168.15.29:8000/dashboard,200,2500,3,0,1,0,25,notifications_error,high,أخطاء في نظام الإشعارات
+http://192.168.15.29:8000/users,200,3200,4,0,1,0,30,user_status_error,medium,أخطاء في تحديث حالة المستخدم
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,529 @@
+Contracting (Egypt-KSA-Global),,,
+,action_id,action_name,action_wait
+Edit,1,Upload Contract,0.1
+Edit,2,Active Contract,0
+Edit,3,Upload Offer,0.05
+Edit,4,Action1 comp2,0
+Edit,5,Active Offer,0
+Edit,6,Fill Excel Offer,0.01
+Edit,7,Fill Excel Contract,0.01
+Edit,8,Account Review1,0
+Edit,9,End,0
+Edit,11,Upload Stop Sale,0.0125
+Edit,12,Active Stop Sale,0.0125
+Edit,13,Review Contract,0
+Edit,14,Review Offer,0
+Edit,15,Scan,0.0125
+Edit,25,End Process Offer,0.05
+Edit,26,End Process Stop Sale,0
+Edit,27,End Process Contract,0.1
+Edit,29,Mapping,0
+Edit,30,Positioning,0
+Edit,32,Update Fake Booking,0.033
+Edit,35,Done,0
+Edit,36,Fill Excel Offer -,0.025
+Edit,37,Fill Excel Contract -,0.0333
+Edit,38,Review and Active Contract on how to work,0
+Edit,39,Upload Offer -,0.05
+Edit,40,Review and active Offer on how to work,0
+Edit,41,Mapping and Positioning,0.00104
+Edit,42,Special Action,0
+Edit,43,Upload Contract-,0.1
+Edit,44,Review and Active Contract on how to work-,0
+Edit,45,End Process Contract-,0.1
+Edit,46,End Process Offer-,0.05
+Edit,47,Upload Stop Sale-,0.01
+Edit,48,Active Stop Sale-,0.01
+Edit,49,End Process Stop Sale-,0.0125
+Edit,50,Update Fake Booking-,0.0125
+Edit,51,Scan-,0.01
+Edit,52,Update or Revise live contract,0.005
+Edit,53,Reactive Contract & issue login for hotel,0.01
+Edit,54,send Email,0.01
+Edit,55,Executing contract on land page,0.01
+Edit,56,Create contract for agent (Commercial),0
+Edit,57,IHG Report (Chain) Semi-annual report,0
+Edit,58,Hilton Report (Chain) Quarterly Report,0
+Edit,59,Marriot Report (Chain)Quarterly Report,0
+Edit,60,Starwood Report (Chain)Quarterly Report,0
+Edit,61,Movenpick / Rotana Report (small Chain)Quarterly Report,0
+Edit,62,Confirmation number Report,0
+Edit,63,Lost booking Report,0
+Edit,64,Canceled book Report,0
+Edit,65,System internal Report,0.01
+Edit,66,Any Comparison,0.01
+Edit,67,Fill Credit Application,0.01
+Edit,68,Design Easy (Social Media Post),0.04
+Edit,69,Design Medium(Cover / Banner / Business Card),0.1
+Edit,70,Design Hard (Events & Exhibitions,1
+Edit,71,Video Creation easy,0.1667
+Edit,72,complicated Video,1
+Edit,73,Micro Blog,0.2
+Edit,74,Facebook Post,0.025
+Edit,75,Facebook shop,0.025
+Edit,76,Facebook searching contacts,0.3333
+Edit,77,Pinterest,0.025
+Edit,78,Flicker,0.025
+Edit,79,Instagram,0.025
+Edit,80,Google+,0.025
+Edit,81,Twitter,0.025
+Edit,82,Social Bookmark,0.0833
+Edit,83,Blog writing,1
+Edit,84,Content Creation (Social),0.2
+Edit,85,SEO,1
+Edit,86,EET Global Updates hotdeal,0.04
+Edit,87,EET Global weekly offers,0.04
+Edit,88,Newsletter Creation,0.25
+Edit,89,Newsletter flash sale,0.5
+Edit,90,EET Updates,0.02
+Edit,91,Hotel Creation,0.05
+Edit,92,Special Note,0.01
+Edit,93,any report,0.01
+Edit,94,Training,0
+Edit,95,Upload Transfer,0.02
+Edit,96,Upload Service,0.02
+Edit,97,Active Transfer,0.02
+Edit,98,Active Service,0.02
+Edit,99,Photo Edit,0.02
+Edit,100,Hotel Optimization Review 1- Review on the call center/booking.com/Agoda/Expedia.com/Hotel Website (All room types & All Meal Plans) 2- Escalate to the market manager if there is any unqualified product with an email to the hotel,0.034
+Edit,101,Optimization Call 1- Call with the hotel in order to Optimize the Product-Details of each call should be reported to market manager,0.0084
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+IT,,,
+,action_id,action_name,action_wait
+Edit,4,check HDD by Scan desk,0.021
+Edit,5,update windows,0.042
+Edit,6,update Driver,0.021
+Edit,7,update programs,0.021
+Edit,8,check antivirus logs,0.042
+Edit,9,backup data file,0.0625
+Edit,10,archiving for (Data & Emails),0.0625
+Edit,11,check up phone status,0.042
+Edit,12,check hardware performance,0.0625
+Edit,13,check router 3G qouta and actual speed,0.0625
+Edit,14,check DSL router qouta and actual speed,0.0625
+Edit,15,PC Software Clean temp from partation ( C ),0.0625
+Edit,16,Cleaning dust of PC,0.021
+Edit,17,Backup from server hisoft,0.0625
+Edit,18,Backup from server domain (sharing folder),0.125
+Edit,19,PC Software Check Capacity Outlooks mails data files & Search,0.0625
+Edit,20,check mails and clean from webmail,0.0625
+Edit,21,check printer status,0.042
+Edit,22,check Finger Print status,0.021
+Edit,23,check UBS Status,0.08
+Edit,24,archiving data file of PC,0.042
+Edit,25,check land lines,0.021
+Edit,26,check PRI line,0.021
+Edit,27,Installing operating systems and drivers,0.0625
+Edit,28,Installing applications and programs,0.0625
+Edit,29,Install emails,0.0312
+Edit,30,Check pc for new employee and check all programs,0.028
+Edit,31,skype problem.,0.0416
+Edit,32,Fix sharing problem .,0.028
+Edit,33,Fix internet problem.,0.028
+Edit,34,check network cable,0.028
+Edit,35,install camera program,0.0315
+Edit,36,troubleshooting camera and reconnected,0.028
+Edit,37,check phone cable,0.028
+Edit,38,check up problem in user,0.0416
+Edit,39,voice not stable during the call,0.06
+Edit,40,change keyboard .,0.01
+Edit,41,change mouse,0.01
+Edit,42,change power supply,0.0315
+Edit,43,change fan,0.0315
+Edit,44,change batery,0.0315
+Edit,45,troubleshooting network cable,0.0315
+Edit,46,install new network cable,0.028
+Edit,47,change power cable to the computers,0.028
+Edit,48,check VGA cable problem,0.025
+Edit,49,check hardware motherboard problem & rams,0.0625
+Edit,50,check monitor problem,0.025
+Edit,51,follow up problem in internet lines.,0.0625
+Edit,52,reconfigure ADSL router,0.0315
+Edit,53,upgrade or downgrade internet speed,0.0625
+Edit,54,Call Support to request a visit,0.032
+Edit,55,execute steps as per Support request before the visit,0.028
+Edit,56,follow the problem and till the visit performed and solve the problem,0.0315
+Edit,57,,0
+Edit,58,fix outlook data files,0.028
+Edit,59,outlook hanging,0.01
+Edit,60,test generators weekly and check oil and gas,0.0416
+Edit,61,install new outlook mail,0.028
+Edit,62,backup mobile data (contacts &whats app chat ),0.0416
+Edit,63,intsall new Gmail Account,0.028
+Edit,64,Inventory of contents,0.125
+Edit,65,Check-up fire alarm Testing from ( Heat sensor - control panel - emergency Alarm box ),0.0416
+Edit,66,Create Finger Print for New Employee,0.01
+Edit,67,Fix headphone problem.,0.028
+Edit,68,Fix scanner problem,0.028
+Edit,69,Fix printer problem.,0.028
+Edit,70,Install banner on all signatures,0.125
+Edit,71,access point cable problem,0.028
+Edit,72,Mobile Problem,0.028
+Edit,73,Software laptop problem,0.0315
+Edit,74,Hardware Checkup laptop problem or any other devices in computer mall,0.1875
+Edit,75,prepare purchase order,0.0625
+Edit,76,Sending request purchase order to purchasing department,0.028
+Edit,77,prepare payment order for accounting Dept,0.028
+Edit,78,Solve problem in device which still under certifcate of guarantee by contacting with support and do the steps,0.0625
+Edit,79,check with support if they can solve it online or they need visit,0.0416
+Edit,80,Solving the technical problems of the Main Office Staff if they have any problem,0.028
+Edit,81,check system Events(Access Controll),0.03125
+Edit,82,Management the system(Access Controll),0.03125
+Edit,83,Check system Events(Surveillance Cameras),0.0625
+Edit,84,Management the system(Surveillance Cameras),0.0937
+Edit,85,Check system Events(UBS Server),0.03125
+Edit,86,Management the system(UBS Server),0.03125
+Edit,87,Check system Events(Fire Alarm),0.03125
+Edit,88,Management the system(Fire Alarm),0.03125
+Edit,89,Check system Events(Domain Server),0.125
+Edit,90,Management the system(Domain Server),0.125
+Edit,91,Check system Events (HI Soft server),0.125
+Edit,92,Management the system(HI Soft Server),0.125
+Edit,93,Check system Events (Recording System),0.0937
+Edit,94,Management the system(Recording System),0.125
+Edit,95,Check system Events (AVAYA server),0.1875
+Edit,96,Management the system(AVAYA Servers),0.1875
+Edit,97,Check system Events(FortiGate firewall ),0.1875
+Edit,98,Management the system(FortiGate firewall ),0.25
+Edit,99,Check system Events(Switches),0.03125
+Edit,100,Management the system(Switches),0.03125
+Edit,101,analyze wireless Network(Access points Controller),0.0187
+Edit,102,Management the access points(Access points Controller),0.0187
+Edit,103,check Routers,0.125
+Edit,104,Management the routers,0.01
+Edit,105,check rack temperatures,0.01
+Edit,107,End,0
+Edit,108,Special Action,0
+Edit,109,inhouse system Report,0.1875
+Edit,110,Training,0
+Edit,111,Management the system (CSG server ),0.125
+Edit,112,backup recording server,0.0625
+Edit,113,backup CSG server,0.0625
+Edit,114,Check system Events(CSG server ),0.0625
+Edit,115,Check system Events(VoiceMail server),0.125
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+Internet dep,,,
+,,,
+,,,
+,action_id,action_name,action_wait
+Edit,1,test,0
+Edit,2,End,0
+Edit,3,Training(New Commers),0.375
+Edit,4,Support,0.125
+Edit,5,Development,0.125
+Edit,6,Create action,0.010416
+Edit,7,Create User,0.010416
+Edit,8,Check Booking Errors Report,0.0417
+Edit,9,Create Contract,0.0625
+Edit,10,Create offer or Supplement or restriction,0.020833
+Edit,11,Activate on How to work 1,0.020833
+Edit,12,Review contracts,0.0625
+Edit,13,Weekly or Monthly Production report,0.041666
+Edit,14,Daily reports,0.020833
+Edit,15,L2B report,0.0625
+Edit,16,JP code,0.010416
+Edit,17,Template,0.020833
+Edit,18,Mapping,0.0625
+Edit,19,Create New Customer,0.041666
+Edit,20,Stop products/Return Product,0.010417
+Edit,21,Increase credit,0.020833
+Edit,22,extend contract,0.041666
+Edit,23,update cancellation,0.020833
+Edit,24,Return Product,0.020833
+Edit,25,Active hotels report,0.041667
+Edit,26,Upload contract (uploading rates & availability),0.25
+Edit,27,Send email,0.010417
+Edit,28,adding new occupency /Board type,0.020833
+Edit,29,test booking,0.020833
+Edit,30,Special Action,0
+Edit,31,create/Modify Room,0.010416
+Edit,32,Stop Sale,0.010416
+Edit,33,Booking error review,0.020833
+Edit,34,Hilton offers review,0.0417
+Edit,35,Training (Employees),0.125
+Edit,36,review booking data,0.020833
+Edit,37,Update hotel Special Markup,0.010416
+Edit,38,review offer/supplement,0.020833
+Edit,39,Update Customer,0.010417
+Edit,40,B2B2C Report,0.020833
+Edit,41,Daily Materlization Reports,0.020833
+Edit,42,All Departments & suppliers number of booking report,0.020833
+Edit,43,Weekly Materlization Reports,0.020833
+Edit,44,Lost Bookings weekly,0.020833
+Edit,45,Upload Supplier Template,0.020833
+Edit,46,Upload Customer Template,0.020833
+Edit,47,Create Supplier Template,0.125
+Edit,48,Create Customer Template,0.125
+Edit,49,Suppliers Comparison,0.03125
+Edit,50,"Chain Comparison (B2B, B2C, Website)",0.010416
+Edit,51,Update Customer Contract,0.020833
+Edit,52,Mapping/inquires from destinations,0.010416
+Edit,53,Mapping of the third party suppliers,0.010416
+Edit,54,Customer/Supplier Reports/Optimizing the customers,0.125
+Edit,55,Mapping of the chain Hotels,0.03125
+Edit,56,Data transfer report,0.0625
+Edit,57,Emails /other tasks,0
+Edit,58,Training,0.125
+Edit,59,any report,0.0625
+Edit,60,hotel creation,0.05
+Edit,61,Price Change audit,0.0417
+Edit,62,Statistics real-time report,0.0625
+Edit,63,Statistics History report,0.0625
+Edit,64,Hotels database weekly audit,0.0625
+Edit,65,Agencies with Zero production Report,0.0625
+Edit,66,Direct Connectivity hotels with Zero availability,0.03125
+Edit,67,Cancelled Booked Report,0.0625
+Edit,68,Check Dummy rates,0.020833
+Edit,69,Top Hotels JPCode report,0.03125
+Edit,70,Hotels with high search and Zero bookings,0.03125
+Edit,71,Customer_Hotels Productions,0.03125
+Edit,72,Customers_Area L2B,0.03125
+Edit,73,Customers_Hotel L2B,0.03125
+Edit,74,Add Special Note,0.020833
+Edit,75,Upload Hotel photos,0.020833
+Edit,76,Hotel Profile Updates,0.020833
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+Accounting,,,
+,,,
+,action_id,action_name,action_wait
+Edit,2,End,0
+Edit,3,Creat manual Vcc,0.008333
+Edit,4,Review & Manage the Credit & Billing limits for all customers,0.025
+Edit,5,Create Invoices for the pervious day,0.0001
+Edit,6,"Allocate Payment ""Online""",0.01
+Edit,7,Alert the exceeded credit customers,0
+Edit,8,Follow up collection(Call reminder emails to delayed customers ( delay )),0.0001
+Edit,9,Booking Adjustment,0.005
+Edit,10,(Cash Situation)Review the booking and collect the cash & update the Online accordingly (Cash Situation),0.25
+Edit,11,VAT Invoices VAT Invoices Out Side Dubai,0.01
+Edit,12,Mail Handling,0.0001
+Edit,13,Unexpected Issue,0
+Edit,14,VAT Invoices Inside Dubai (Issue VAT Invoices (XCL) to send to the customers inside Dubai),0.01
+Edit,15,VAT Invoices Inside Dubai (Review & Sign VAT Invoices),0.004
+Edit,16,VAT Invoices Inside Dubai (Scan VAT Invoices),0.002
+Edit,17,PDF Invoices All,0.002
+Edit,18,Send SOA (arrange statements to customers),0.01
+Edit,20,Transfer from Online to Hisoft (Arrange the transfer sheets),0.03
+Edit,21,Transfer from Online to Hisoft (Review the transfer sheets),0.01
+Edit,23,Send SOA (Send the monthly statements to all the customers),0.01
+Edit,24,Monthly Closing(Customers ledgers closing),0.02
+Edit,27,Transfer from Online to Hisoft(Complete the last step and ensure that all the transaction is already transferred),0.02
+Edit,28,Balance Confirmation (Send balance confirmation to all the credit customers),0.0001
+Edit,29,Override Commission(Calculate the ORC for each customer who applied),0.02
+Edit,30,Closing(Reviewing and compare customer ledger between online & Hisoft ),0.02
+Edit,31,Closing(Prepare separate Customer Aging according to bank collection),0.0063
+Edit,33,E Nett entries (Filtering excel sheets to show bookings related to destination only & Making Journal entries For Online and Hi Soft ),0.001
+Edit,34,Contracts Approval(Reading The Contract Carfully Ensure That The Excell Sheet Is Matching ),0.05
+Edit,35,Creat manual Vcc(Creat Cash & Credit Vcc ),0.008333
+Edit,36,Online banking process(Making online transactions),0.001
+Edit,37,Bank entries(Journal Entry For Trasactions ),0.01
+Edit,38,Generic Booking,0.01
+Edit,39,Handlin E- Mails,0.0001
+Edit,40,handling issues over Phone,0.0001
+Edit,41,Credit Hotels ( payment ),0.03
+Edit,42,Cash Hotels ( closing ),0.03
+Edit,43,VAT Reports,0.05
+Edit,44,Discount and add tax,0.05
+Edit,45,Credit cards (compairing with Hi soft & processing the Journal entries ),0.05
+Edit,46,Cost(Making accrual Journal entries for monthly Expences),0.25
+Edit,47,closing(preparing Supplier aging analysis ),0.05
+Edit,48,closing(preparing cost analysis ),0.125
+Edit,49,closing(preparing accrouad analysis),0.125
+Edit,50,closing(preparing balance sheet analysis),0.125
+Edit,51,arrange situation sheet,0.125
+Edit,52,Allocate Payment Hisoft JV,0.0001
+Edit,53,send reminder emails to delayed customers ( delay ),0.0001
+Edit,54,Review cash receipt,0.0001
+Edit,55,VAT Invoices Out Side Dubai,0.01
+Edit,56,review monthly closing (Monthly Closing),0.01
+Edit,57,Review the booking and collect the cash&update C,0.0001
+Edit,58,Handling Emails,0.0001
+Edit,59,Creat Manual VCCs,0.008333
+Edit,60,Contracts Reviewing and approval,0.05
+Edit,61,Reviewing Cash Payments,0.008333
+Edit,62,Generic Bookings,0.0125
+Edit,63,Amend Booking,0.010416
+Edit,64,Daily Bank Situation,0.0625
+Edit,65,E Nett Situation,0.020833
+Edit,66,E Nett Settlement Report,0.05
+Edit,67,E Nett Filtration,0.001041
+Edit,68,E Nett Daily Transation,0.00625
+Edit,69,A/P Clearance Closing,1
+Edit,70,E Nett Closing,0.125
+Edit,71,Handling E Nett Issues,0.010416
+Edit,72,Monthly Closing for Cash Hotels,0.041666
+Edit,73,Monthly Closing For Credit Hotels,0.063333
+Edit,74,TKTS Closing,0.0625
+Edit,75,Visas Closing,0.03
+Edit,76,VAT Report 14 %,0.5
+Edit,77,VAT Dubai Quartare,0.5
+Edit,78,Discount and add Tax Report,0.5
+Edit,79,Withholding TAX,0.5
+Edit,80,Withholding TAX Certificate,0.0625
+Edit,81,Servises Reports,0.1875
+Edit,82,Receiving Invoices From Credit Hotels Via Email,0.00625
+Edit,83,Reviewing the Invoices Of Credit Hotels,0.00625
+Edit,84,Preparing Cover Sheet For hotels,0.020833
+Edit,85,Issue Cheques,0.25
+Edit,86,Issue Debit or Credit Note ( Discount and add Tax ),0.05
+Edit,87,Cheques Scan and Discount Note,0.25
+Edit,88,Invoices Scan,0.020833
+Edit,89,Preparing Statement for BSP,0.375
+Edit,90,Preparing Statement for Al wadi Tours,0.125
+Edit,91,Sending statement For Hotels,0.0001
+Edit,92,Reviewing Transfer Sheet To Hi soft,0.02
+Edit,93,Preparing Salaries,0
+Edit,94,Closing Intermediate accounts,0.0625
+Edit,95,Delivering Cheques,0.05
+Edit,96,Preparing Entries For Cheques,0.010416
+Edit,97,Traffic,0.5
+Edit,98,Preparing profit and loss files,0.0125
+Edit,99,Sending Reconcelation For Hotels,0.0001
+Edit,100,Handling Invoices Issues,0.020833
+Edit,101,Handling SOA,0.03125
+Edit,102,Handling Refund Sheet,0.125
+Edit,103,Banks Reviewing,0.05
+Edit,104,Daily Bank Trasactions,0.00625
+Edit,105,Processing Online Transfer By Bank,0.010416
+Edit,106,Preparing Monthly Cost,0.375
+Edit,107,Cash Count,0.05
+Edit,108,Cash Box Reviewing,0.05
+Edit,109,Handling Cash box Egypt,0.5
+Edit,110,Reviewing Drivers Expenses,0.03
+Edit,111,Suppliers Reviewing,0.020833
+Edit,112,Monthly Closing Reviewing,0.05
+Edit,113,Preparing Yearly Closing,0.05
+Edit,114,Preparing Balance Sheet,0.05
+Edit,115,Journal entry,0.01
+Edit,116,Handling Cash box UAE,0.125
+Edit,117,Training,0
+Edit,118,any report,0
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+Callcenter,,,
+,,,
+,,,
+,action_id,action_name,action_wait
+Edit,1,test,1
+Edit,2,End,0
+Edit,3,Hotel Confirmation Number,0.013
+Edit,4,Sending Voucher,0.013
+Edit,5,Payment Order,0.013
+Edit,6,Special Action,0
+Edit,7,booking (trainee),0.02
+Edit,8,Booking (reservation),0.01333
+Edit,9,Booking (senior),0.01
+Edit,10,Case (reservation),0.04
+Edit,11,Case (senior),0.025
+Edit,12,Lost Booking Report,0.020833
+Edit,13,Confirmation Number Report,0.020833
+Edit,14,confirmation/Cancellation Report,0.020833
+Edit,15,Acknowledge reports,0.020833
+Edit,16,Daily Cancellation Report,0.010416
+Edit,17,Quotation Booking report,0.010416
+Edit,18,Test booking weekly report,0.010416
+Edit,19,any report,1
+Edit,20,Training,0
+,,,
+,,,
+,,,
+,,,
+,,,
+Marketing,,,
+,action_id,action_name,action_wait
+Edit,1,Design Easy (flyer- Social Media Post),0.03
+Edit,2,Design Medium(Cover / Banner / Business Card),0.12
+Edit,3,Design Hard (Events & Exhibitions,1
+Edit,4,Video Easy,0.1667
+Edit,5,Video Complicated,1
+Edit,6,???,0.2
+Edit,7,Social media - Facebook Post,0.025
+Edit,8,Social media - Facebook shop,0.025
+Edit,9,Social media - Facebook searching contacts,0.3333
+Edit,10,???,0.025
+Edit,11,???,0.025
+Edit,12,Social media - Instagram,0.025
+Edit,13,???,0.025
+Edit,14,Social media - Twitter,0.025
+Edit,15,???,0.0833
+Edit,16,???,1
+Edit,17,Social media - New Post Content,0.2
+Edit,18,Social media - SEO,1
+Edit,19,EET Global Updates hotdeal,0.02
+Edit,20,EET Global weekly offers,0.02
+Edit,21,Newsletter Creation,0.25
+Edit,22,Newsletter and flash sale,0.5
+Edit,23,EET Updates,0.02
+Edit,24,???,0.05
+Edit,25,???,0.01
+Edit,26,???,0
+Edit,28,End,0
+Edit,29,EET Global Holiday,0.04
+Edit,30,BTC - Creating Offer (Web),0.23
+Edit,31,BTC - Update Offer (Web),0.025
+Edit,32,BTC - Review Offer (Web),0.02
+Edit,33,BTC - Creating Breakdown,0.04
+Edit,34,BTC - Update Breakdown,0.025
+Edit,35,BTC - Review Breakdown,0.02
+Edit,36,Egypt Express Travel updates packages,0.0154
+Edit,39,Presentation hard (e.g - company profile),1
+Edit,40,Presentation medium ( training ),0.33
+Edit,41,Searching photo /video - complicated,0.1667
+Edit,42,Social media daily report,0.01
+Edit,43,Video Medium,0.5
+Edit,44,Create Contract,0.0625
+Edit,45,???,0.020833
+Edit,46,Design upper intermediate (flyer / brochure / magazine ),0.25
+Edit,47,Photo Edit,0.02
+Edit,48,???,1
+Edit,49,Training,0
+Edit,50,send email,0.01
+Edit,51,upload Content,0.01
+Edit,52,???,0.055
+,,,
+,,,
+,,,
+,,,
