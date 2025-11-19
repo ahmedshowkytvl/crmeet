@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نظام الدردشة - Chat System</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="chat-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h2><i class="fas fa-comments"></i> المحادثات</h2>
+                <button class="btn-new-chat" id="newChatBtn">
+                    <i class="fas fa-plus"></i> محادثة جديدة
+                </button>
+            </div>
+            
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="بحث في المحادثات...">
+            </div>
+
+            <div class="conversations-list" id="conversationsList">
+                <div class="loading">جاري التحميل...</div>
+            </div>
+        </div>
+
+        <!-- Chat Area -->
+        <div class="chat-area">
+            <div class="chat-header" id="chatHeader" style="display: none;">
+                <div class="chat-user-info">
+                    <img src="" alt="" id="chatUserAvatar" class="avatar">
+                    <div>
+                        <h3 id="chatUserName">اسم المستخدم</h3>
+                        <span class="status" id="chatUserStatus">متصل</span>
+                    </div>
+                </div>
+                <div class="chat-actions">
+                    <button class="btn-icon" title="معلومات">
+                        <i class="fas fa-info-circle"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="messages-container" id="messagesContainer">
+                <div class="welcome-screen" id="welcomeScreen">
+                    <i class="fas fa-comments fa-4x"></i>
+                    <h2>مرحباً بك في نظام الدردشة</h2>
+                    <p>اختر محادثة من القائمة لبدء المحادثة</p>
+                </div>
+            </div>
+
+            <div class="message-input-container" id="messageInputContainer" style="display: none;">
+                <div class="input-actions">
+                    <button class="btn-icon" title="إرفاق ملف">
+                        <i class="fas fa-paperclip"></i>
+                    </button>
+                    <button class="btn-icon" title="إرسال جهة اتصال">
+                        <i class="fas fa-user-plus"></i>
+                    </button>
+                </div>
+                <div class="input-wrapper">
+                    <input type="text" id="messageInput" placeholder="اكتب رسالتك هنا..." autocomplete="off">
+                    <button class="btn-send" id="sendBtn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
+

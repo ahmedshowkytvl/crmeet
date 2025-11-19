@@ -207,7 +207,13 @@
                                             @endif
                                         </div>
                                     </td>
-                                    <td>{{ $assignment->assigned_at->format('Y-m-d H:i') }}</td>
+                                    <td>
+                                        @if($assignment->assigned_at)
+                                            {{ $assignment->assigned_at->format('Y-m-d H:i') }}
+                                        @else
+                                            -
+                                        @endif
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>

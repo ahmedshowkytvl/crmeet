@@ -286,6 +286,61 @@
 
 @push('scripts')
 <script>
+// Validate required fields before form submission
+document.querySelector('form').addEventListener('submit', function(event) {
+    // Get all required fields
+    const requiredFields = this.querySelectorAll('[required]');
+    const missingFields = [];
+    
+    requiredFields.forEach(field => {
+        if (!field.value.trim()) {
+            const label = field.closest('.mb-3')?.querySelector('label')?.textContent?.trim() || field.name;
+            // Remove asterisk and clean label text
+            const cleanLabel = label.replace(/\s*\*\s*$/, '').replace(/^\s*/, '');
+            missingFields.push(cleanLabel);
+            
+            // Highlight the field
+            field.classList.add('is-invalid');
+            field.style.borderColor = '#dc3545';
+        } else {
+            // Remove highlight if field is filled
+            field.classList.remove('is-invalid');
+            field.style.borderColor = '';
+        }
+    });
+    
+    // If there are missing required fields, show alert and prevent submission
+    if (missingFields.length > 0) {
+        event.preventDefault();
+        event.stopPropagation();
+        
+        const message = 'يرجى ملء الحقول المطلوبة التالية:\n\n' + 
+                       missingFields.map((field, index) => `${index + 1}. ${field}`).join('\n') +
+                       '\n\nلا يمكن حفظ الحساب بدون هذه الحقول.';
+        
+        alert(message);
+        
+        // Scroll to first missing field
+        const firstMissingField = Array.from(requiredFields).find(f => !f.value.trim());
+        if (firstMissingField) {
+            firstMissingField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            firstMissingField.focus();
+        }
+        
+        return false;
+    }
+    
+    // Ensure assigned_users is always sent in the form
+    const assignedUsersCheckboxes = document.querySelectorAll('input[name="assigned_users[]"]:checked');
+    if (assignedUsersCheckboxes.length === 0) {
+        // If no users are selected, ensure an empty array is sent
+        const hiddenInput = document.createElement('input');
+        hiddenInput.type = 'hidden';
+        hiddenInput.name = 'assigned_users[]';
+        hiddenInput.value = ''; // An empty value will result in an empty array when parsed by Laravel
+        this.appendChild(hiddenInput);
+    }
+});
 function togglePassword(fieldId) {
     const field = document.getElementById(fieldId);
     const icon = document.getElementById(fieldId + 'ToggleIcon');

@@ -51,11 +51,15 @@
                         <!-- Email/Username -->
                         <div class="col-md-6 mb-3">
                             <label for="email" class="form-label">{{ __('passwords.email_username') }}</label>
-                            <input type="email" class="form-control @error('email') is-invalid @enderror" 
-                                   id="email" name="email" value="{{ old('email', $passwordAccount->email) }}">
+                            <input type="text" class="form-control @error('email') is-invalid @enderror" 
+                                   id="email" name="email" value="{{ old('email', $passwordAccount->email) }}"
+                                   placeholder="{{ __('passwords.email_username_placeholder') }}">
                             @error('email')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
+                            <small class="form-text text-muted">
+                                {{ __('passwords.email_username_hint') }}
+                            </small>
                         </div>
                         
                         <!-- Category -->
@@ -204,7 +208,6 @@
                             <i class="fas fa-save me-2"></i>{{ __('Update Account') }}
                         </button>
                     </div>
-                </form>
             </div>
         </div>
     </div>
@@ -227,7 +230,7 @@
                     <div id="users_list" style="max-height: 300px; overflow-y: auto;">
                         @foreach($users as $user)
                             <div class="form-check user-item" data-name="{{ strtolower($user->name) }}">
-                                <input class="form-check-input" type="checkbox" 
+                                <input class="form-check-input assigned-user-checkbox" type="checkbox" 
                                        id="user_{{ $user->id }}" name="assigned_users[]" 
                                        value="{{ $user->id }}" {{ in_array($user->id, $assignedUsers) ? 'checked' : '' }}>
                                 <label class="form-check-label" for="user_{{ $user->id }}">
@@ -242,6 +245,7 @@
                 </div>
             </div>
         </div>
+                </form>
         
         <!-- Security Tips -->
         <div class="card mt-3">
@@ -275,6 +279,96 @@
 
 @push('scripts')
 <script>
+// Validate required fields before form submission
+document.querySelector('form').addEventListener('submit', function(event) {
+    // Debug: Log all assigned_users checkboxes before form submission
+    const allCheckboxes = document.querySelectorAll('input[name="assigned_users[]"]');
+    const checkedBoxes = document.querySelectorAll('input[name="assigned_users[]"]:checked');
+    console.log('Total checkboxes:', allCheckboxes.length);
+    console.log('Checked checkboxes:', checkedBoxes.length);
+    checkedBoxes.forEach((box, index) => {
+        console.log(`Checked ${index + 1}:`, box.value, box.id);
+    });
+    // Get all required fields
+    const requiredFields = this.querySelectorAll('[required]');
+    const missingFields = [];
+    
+    requiredFields.forEach(field => {
+        // Skip password field if it's empty (optional in edit)
+        if (field.id === 'password' && !field.value.trim()) {
+            return; // Password is optional in edit mode
+        }
+        
+        if (!field.value.trim()) {
+            const label = field.closest('.mb-3')?.querySelector('label')?.textContent?.trim() || field.name;
+            // Remove asterisk and clean label text
+            const cleanLabel = label.replace(/\s*\*\s*$/, '').replace(/^\s*/, '');
+            missingFields.push(cleanLabel);
+            
+            // Highlight the field
+            field.classList.add('is-invalid');
+            field.style.borderColor = '#dc3545';
+        } else {
+            // Remove highlight if field is filled
+            field.classList.remove('is-invalid');
+            field.style.borderColor = '';
+        }
+    });
+    
+    // If there are missing required fields, show alert and prevent submission
+    if (missingFields.length > 0) {
+        event.preventDefault();
+        event.stopPropagation();
+        
+        const message = 'يرجى ملء الحقول المطلوبة التالية:\n\n' + 
+                       missingFields.map((field, index) => `${index + 1}. ${field}`).join('\n') +
+                       '\n\nلا يمكن حفظ التعديلات بدون هذه الحقول.';
+        
+        alert(message);
+        
+        // Scroll to first missing field
+        const firstMissingField = Array.from(requiredFields).find(f => !f.value.trim() && f.id !== 'password');
+        if (firstMissingField) {
+            firstMissingField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            firstMissingField.focus();
+        }
+        
+        return false;
+    }
+    
+    // Ensure assigned_users is always sent in the form
+    // Remove any existing hidden input first
+    const existingHidden = this.querySelector('input[name="assigned_users[]"][type="hidden"]');
+    if (existingHidden) {
+        existingHidden.remove();
+    }
+    
+    // Check if any checkboxes are checked
+    const assignedUsersCheckboxes = document.querySelectorAll('input[name="assigned_users[]"]:checked');
+    console.log('Checked checkboxes count:', assignedUsersCheckboxes.length);
+    
+    // Verify that checked checkboxes have values
+    assignedUsersCheckboxes.forEach((box, index) => {
+        console.log(`Checkbox ${index + 1}: value="${box.value}", checked=${box.checked}`);
+        if (!box.value || box.value === '') {
+            console.warn(`Warning: Checkbox ${index + 1} is checked but has no value!`);
+        }
+    });
+    
+    // If no users are selected, ensure an empty array is sent
+    // Laravel will parse this as an empty array
+    if (assignedUsersCheckboxes.length === 0) {
+        const hiddenInput = document.createElement('input');
+        hiddenInput.type = 'hidden';
+        hiddenInput.name = 'assigned_users[]';
+        hiddenInput.value = '';
+        this.appendChild(hiddenInput);
+        console.log('Added hidden input for empty assigned_users');
+    } else {
+        console.log('Form will submit with', assignedUsersCheckboxes.length, 'checked users');
+    }
+});
+
 function togglePassword(fieldId) {
     const field = document.getElementById(fieldId);
     const icon = document.getElementById(fieldId + 'ToggleIcon');
@@ -314,6 +408,7 @@ document.getElementById('user_search').addEventListener('input', function() {
         }
     });
 });
+
 
 // AI Notes Generation
 document.getElementById('generateNotesBtn').addEventListener('click', function() {

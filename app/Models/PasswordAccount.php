@@ -72,6 +72,15 @@ class PasswordAccount extends Model
     }
 
     /**
+     * Get only active (not revoked) assignments for this account.
+     */
+    public function activeAssignments(): HasMany
+    {
+        return $this->hasMany(PasswordAssignment::class, 'account_id')
+                    ->whereNull('revoked_at');
+    }
+
+    /**
      * Get all users assigned to this account.
      */
     public function assignedUsers(): BelongsToMany

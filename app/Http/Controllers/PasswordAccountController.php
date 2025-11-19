@@ -34,19 +34,30 @@ class PasswordAccountController extends Controller
         // Role-based filtering
         // Check if user is admin by email or role
         $isAdmin = $user->email === 'admin@company.com' || 
-                   ($user->role && in_array($user->role->slug, ['software_developer', 'admin', 'system_admin']));
+                   ($user->role && in_array($user->role->slug, ['software_developer', 'admin', 'system_admin', 'ceo', 'head_manager']));
         
         if (!$isAdmin) {
-            // Other users can see:
-            // 1. Accounts they created (created_by = user_id)
-            // 2. Accounts assigned to them (via assignments)
-            $query->where(function ($q) use ($user) {
-                $q->where('created_by', $user->id)
-                  ->orWhereHas('assignments', function ($assignmentQuery) use ($user) {
-                      $assignmentQuery->where('user_id', $user->id)
-                                      ->whereNull('revoked_at');
-                  });
-            });
+            // Check if user is Employee
+            $isEmployee = $user->role && $user->role->slug === 'employee';
+            
+            if ($isEmployee) {
+                // Employee can ONLY see accounts assigned to them (not accounts they created)
+                $query->whereHas('assignments', function ($assignmentQuery) use ($user) {
+                    $assignmentQuery->where('user_id', $user->id)
+                                    ->whereNull('revoked_at');
+                });
+            } else {
+                // Other users (Manager, Team Leader, etc.) can see:
+                // 1. Accounts they created (created_by = user_id)
+                // 2. Accounts assigned to them (via assignments)
+                $query->where(function ($q) use ($user) {
+                    $q->where('created_by', $user->id)
+                      ->orWhereHas('assignments', function ($assignmentQuery) use ($user) {
+                          $assignmentQuery->where('user_id', $user->id)
+                                          ->whereNull('revoked_at');
+                      });
+                });
+            }
         }
         // System Admins can see all accounts (no filtering)
 
@@ -91,7 +102,10 @@ class PasswordAccountController extends Controller
         }
 
         // Get paginated accounts
-        $accounts = $query->with(['creator', 'category', 'assignments.user'])
+        // Load only active assignments (not revoked)
+        $accounts = $query->with(['creator', 'category', 'assignments' => function($q) {
+                            $q->whereNull('revoked_at')->with('user');
+                          }])
                           ->orderBy('name')
                           ->paginate(20);
         
@@ -208,16 +222,22 @@ class PasswordAccountController extends Controller
             ]);
 
             // Assign to users if specified
-            if ($request->has('assigned_users')) {
-                foreach ($request->assigned_users as $userId) {
-                    PasswordAssignment::create([
+            $assignedUsers = $request->input('assigned_users', []);
+            // Handle both array and string cases
+            if (!is_array($assignedUsers)) {
+                $assignedUsers = $assignedUsers === '' ? [] : [$assignedUsers];
+            }
+            
+            if (!empty($assignedUsers) && count($assignedUsers) > 0) {
+                foreach ($assignedUsers as $userId) {
+                    if (empty($userId)) continue; // Skip empty values
+                    
+                    // Use DB facade to insert directly since table structure is simple
+                    DB::table('password_assignments')->insert([
                         'account_id' => $account->id,
                         'user_id' => $userId,
-                        'access_level' => 'read_only',
-                        'can_view_password' => true,
-                        'can_edit_password' => false,
-                        'can_delete_account' => false,
-                        'assigned_by' => Auth::id(),
+                        'created_at' => now(),
+                        'updated_at' => now(),
                     ]);
                 }
             }
@@ -327,22 +347,91 @@ class PasswordAccountController extends Controller
             ]);
 
             // Update assignments
-            if ($request->has('assigned_users')) {
-                // Remove existing assignments
-                $passwordAccount->assignments()->delete();
-                
-                // Create new assignments
-                foreach ($request->assigned_users as $userId) {
-                    PasswordAssignment::create([
-                        'account_id' => $passwordAccount->id,
-                        'user_id' => $userId,
-                        'access_level' => 'read_only',
-                        'can_view_password' => true,
-                        'can_edit_password' => false,
-                        'can_delete_account' => false,
-                        'assigned_by' => Auth::id(),
-                    ]);
+            // Always update assignments, even if assigned_users is empty (to remove all assignments)
+            // Remove existing active assignments (soft delete by setting revoked_at)
+            DB::table('password_assignments')
+                ->where('account_id', $passwordAccount->id)
+                ->whereNull('revoked_at')
+                ->update([
+                    'revoked_at' => now(),
+                    'updated_at' => now(),
+                ]);
+            
+            // Create new assignments if users are selected
+            // Get assigned_users from request - handle both array and null cases
+            $assignedUsers = $request->input('assigned_users');
+            
+            // Log for debugging
+            Log::info('Password Account Update - assigned_users input:', [
+                'raw' => $request->input('assigned_users'),
+                'all_input' => $request->all(),
+                'has_assigned_users' => $request->has('assigned_users'),
+                'processed' => $assignedUsers,
+                'is_array' => is_array($assignedUsers),
+                'type' => gettype($assignedUsers),
+            ]);
+            
+            // If assigned_users is null or not set, default to empty array
+            if ($assignedUsers === null || !$request->has('assigned_users')) {
+                $assignedUsers = [];
+            }
+            
+            // Handle both array and string cases
+            if (!is_array($assignedUsers)) {
+                $assignedUsers = $assignedUsers === '' ? [] : [$assignedUsers];
+            }
+            
+            // Filter out empty values and convert to integers
+            $assignedUsers = array_filter($assignedUsers, function($userId) {
+                return !empty($userId) && $userId !== '' && is_numeric($userId);
+            });
+            
+            // Re-index array after filtering
+            $assignedUsers = array_values($assignedUsers);
+            
+            Log::info('Password Account Update - filtered assigned_users:', [
+                'count' => count($assignedUsers),
+                'users' => $assignedUsers,
+            ]);
+            
+            if (!empty($assignedUsers) && count($assignedUsers) > 0) {
+                foreach ($assignedUsers as $userId) {
+                    $userId = (int) $userId; // Ensure it's an integer
+                    
+                    // Check if assignment already exists (even if revoked)
+                    $existingAssignment = DB::table('password_assignments')
+                        ->where('account_id', $passwordAccount->id)
+                        ->where('user_id', $userId)
+                        ->first();
+                    
+                    if ($existingAssignment) {
+                        // Reactivate existing assignment
+                        DB::table('password_assignments')
+                            ->where('id', $existingAssignment->id)
+                            ->update([
+                                'revoked_at' => null,
+                                'updated_at' => now(),
+                            ]);
+                        Log::info('Password Account Update - reactivated assignment:', [
+                            'assignment_id' => $existingAssignment->id,
+                            'user_id' => $userId,
+                        ]);
+                    } else {
+                        // Create new assignment using DB::table to avoid model fillable issues
+                        DB::table('password_assignments')->insert([
+                            'account_id' => $passwordAccount->id,
+                            'user_id' => $userId,
+                            'created_at' => now(),
+                            'updated_at' => now(),
+                        ]);
+                        Log::info('Password Account Update - created new assignment:', [
+                            'account_id' => $passwordAccount->id,
+                            'user_id' => $userId,
+                        ]);
+                    }
                 }
+            } else {
+                Log::info('Password Account Update - no users assigned');
             }
 
             // Log the update
