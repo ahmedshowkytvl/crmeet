@@ -114,6 +114,13 @@ try {
     // قراءة إعدادات قاعدة البيانات
     $env = loadEnvFile();
     
+    // قراءة GitHub Token
+    $githubToken = $env['GITHUB_TOKEN'] ?? getenv('GITHUB_TOKEN') ?? '';
+    if (empty($githubToken)) {
+        echo "⚠ تحذير: GITHUB_TOKEN غير موجود في .env\n";
+        echo "   سيتم محاولة استخدام المصادقة الحالية\n\n";
+    }
+    
     $dbConnection = $env['DB_CONNECTION'] ?? 'mysql';
     $dbHost = $env['DB_HOST'] ?? '127.0.0.1';
     $dbPort = $env['DB_PORT'] ?? ($dbConnection === 'pgsql' ? '5432' : '3306');
@@ -209,7 +216,41 @@ EOF;
         // رفع التغييرات إلى Git
         echo "🔄 جاري رفع التغييرات إلى Git...\n";
         $currentBranch = trim(implode('', runGitCommand('git branch --show-current')));
-        runGitCommand("git push origin $currentBranch");
+        
+        // استخدام token إذا كان متوفراً
+        if (!empty($githubToken)) {
+            // الحصول على URL الحالي
+            $remoteUrl = trim(implode('', runGitCommand('git remote get-url origin')));
+            
+            // استخراج اسم المستخدم والمستودع
+            if (strpos($remoteUrl, '@') !== false) {
+                // SSH format
+                preg_match('/@[^:]+:(.+?)\.git$/', $remoteUrl, $matches);
+                $repoPath = $matches[1] ?? '';
+            } else {
+                // HTTPS format
+                preg_match('/github\.com\/(.+?)\.git$/', $remoteUrl, $matches);
+                $repoPath = $matches[1] ?? '';
+            }
+            
+            if (!empty($repoPath)) {
+                // تحديث URL لاستخدام token
+                $githubUrl = "https://{$githubToken}@github.com/{$repoPath}.git";
+                runGitCommand("git remote set-url origin " . escapeshellarg($githubUrl));
+                
+                // رفع التغييرات
+                runGitCommand("git push origin $currentBranch");
+                
+                // استعادة URL الأصلي
+                $originalUrl = "https://github.com/{$repoPath}.git";
+                runGitCommand("git remote set-url origin " . escapeshellarg($originalUrl));
+            } else {
+                runGitCommand("git push origin $currentBranch");
+            }
+        } else {
+            runGitCommand("git push origin $currentBranch");
+        }
+        
         echo "✓ تم رفع التغييرات بنجاح\n\n";
     }
     

@@ -23,6 +23,13 @@ fi
 # تحميل متغيرات البيئة
 export $(grep -v '^#' .env | xargs)
 
+# قراءة GitHub Token من .env أو متغير البيئة
+GITHUB_TOKEN=${GITHUB_TOKEN:-$(grep "^GITHUB_TOKEN=" .env 2>/dev/null | cut -d '=' -f2 | tr -d '"' | tr -d "'")}
+if [ -z "$GITHUB_TOKEN" ]; then
+    echo -e "${YELLOW}⚠ تحذير: GITHUB_TOKEN غير موجود في .env${NC}"
+    echo -e "${YELLOW}   سيتم محاولة استخدام المصادقة الحالية${NC}\n"
+fi
+
 # تحديد نوع قاعدة البيانات
 DB_CONNECTION=${DB_CONNECTION:-mysql}
 DB_HOST=${DB_HOST:-127.0.0.1}
@@ -143,12 +150,41 @@ else
     
     # رفع التغييرات إلى Git
     echo -e "${BLUE}🔄 جاري رفع التغييرات إلى Git...${NC}"
-    git push origin $(git branch --show-current)
+    
+    # استخدام token إذا كان متوفراً
+    if [ -n "$GITHUB_TOKEN" ]; then
+        # الحصول على URL الحالي
+        REMOTE_URL=$(git remote get-url origin)
+        
+        # استخراج اسم المستخدم والمستودع من URL
+        if [[ "$REMOTE_URL" == *"@"* ]]; then
+            # SSH format: git@github.com:user/repo.git
+            REPO_PATH=$(echo "$REMOTE_URL" | sed 's/.*@[^:]*://' | sed 's/\.git$//')
+        else
+            # HTTPS format: https://github.com/user/repo.git
+            REPO_PATH=$(echo "$REMOTE_URL" | sed 's|.*github.com/||' | sed 's/\.git$//')
+        fi
+        
+        # تحديث URL لاستخدام token
+        GITHUB_URL="https://${GITHUB_TOKEN}@github.com/${REPO_PATH}.git"
+        git remote set-url origin "$GITHUB_URL"
+        
+        # رفع التغييرات
+        git push origin $(git branch --show-current)
+        
+        # استعادة URL الأصلي (إزالة token من URL)
+        ORIGINAL_URL="https://github.com/${REPO_PATH}.git"
+        git remote set-url origin "$ORIGINAL_URL"
+    else
+        # استخدام المصادقة الحالية
+        git push origin $(git branch --show-current)
+    fi
     
     if [ $? -eq 0 ]; then
         echo -e "${GREEN}✓ تم رفع التغييرات بنجاح${NC}\n"
     else
         echo -e "${RED}❌ فشل رفع التغييرات${NC}"
+        echo -e "${YELLOW}💡 نصيحة: تأكد من إضافة GITHUB_TOKEN في ملف .env${NC}"
         exit 1
     fi
 fi

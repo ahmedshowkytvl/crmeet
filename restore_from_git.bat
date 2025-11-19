@@ -22,6 +22,15 @@ for /f "tokens=1,2 delims==" %%a in (.env) do (
     if "!line:~0,10!"=="DB_USERNAME" set DB_USERNAME=%%b
     if "!line:~0,10!"=="DB_PASSWORD" set DB_PASSWORD=%%b
     if "!line:~0,8!"=="DB_PORT" set DB_PORT=%%b
+    if "!line:~0,13!"=="GITHUB_TOKEN" set GITHUB_TOKEN=%%b
+)
+
+REM قراءة GitHub Token من متغير البيئة إذا لم يكن في .env
+if "%GITHUB_TOKEN%"=="" set GITHUB_TOKEN=%GITHUB_TOKEN_ENV%
+if "%GITHUB_TOKEN%"=="" (
+    echo ⚠ تحذير: GITHUB_TOKEN غير موجود في .env
+    echo    سيتم محاولة استخدام المصادقة الحالية
+    echo.
 )
 
 REM تعيين القيم الافتراضية
@@ -65,7 +74,45 @@ echo.
 REM استعادة المشروع من Git
 echo 🔄 جاري استعادة المشروع من Git...
 for /f "tokens=*" %%i in ('git branch --show-current') do set CURRENT_BRANCH=%%i
-git pull origin %CURRENT_BRANCH%
+
+REM استخدام token إذا كان متوفراً
+if not "%GITHUB_TOKEN%"=="" (
+    REM الحصول على URL الحالي
+    for /f "tokens=*" %%u in ('git remote get-url origin') do set REMOTE_URL=%%u
+    
+    REM استخراج اسم المستخدم والمستودع
+    set REPO_PATH=
+    echo %REMOTE_URL% | findstr /C:"@" >nul
+    if not errorlevel 1 (
+        REM SSH format: git@github.com:user/repo.git
+        for /f "tokens=2 delims=:" %%p in ("%REMOTE_URL%") do set REPO_PATH=%%p
+        set REPO_PATH=!REPO_PATH:.git=!
+    ) else (
+        REM HTTPS format: https://github.com/user/repo.git
+        for /f "tokens=2 delims=/" %%p in ("%REMOTE_URL%") do (
+            for /f "tokens=2 delims=/" %%q in ("%%p") do set REPO_PATH=%%q
+        )
+        set REPO_PATH=!REPO_PATH:.git=!
+    )
+    
+    if not "!REPO_PATH!"=="" (
+        REM تحديث URL لاستخدام token
+        set GITHUB_URL=https://%GITHUB_TOKEN%@github.com/!REPO_PATH!.git
+        git remote set-url origin "!GITHUB_URL!"
+        
+        REM استعادة المشروع
+        git pull origin %CURRENT_BRANCH%
+        
+        REM استعادة URL الأصلي
+        set ORIGINAL_URL=https://github.com/!REPO_PATH!.git
+        git remote set-url origin "!ORIGINAL_URL!"
+    ) else (
+        git pull origin %CURRENT_BRANCH%
+    )
+) else (
+    REM استخدام المصادقة الحالية
+    git pull origin %CURRENT_BRANCH%
+)
 
 if errorlevel 1 (
     echo ⚠ تحذير: فشل pull من Git، سيتم المتابعة مع استعادة قاعدة البيانات
