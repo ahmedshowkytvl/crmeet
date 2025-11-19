@@ -1,0 +1,199 @@
+/* ========================================
+ * Notification Translation Styles
+ * ======================================== */
+
+/* RTL Support for Notifications */
+.notification-dropdown[dir="rtl"] {
+    text-align: right;
+}
+
+.notification-dropdown[dir="rtl"] .dropdown-header {
+    flex-direction: row-reverse;
+}
+
+.notification-dropdown[dir="rtl"] .dropdown-header h3 {
+    margin-right: 0;
+    margin-left: auto;
+}
+
+.notification-dropdown[dir="rtl"] .mark-all-read-btn {
+    margin-right: auto;
+    margin-left: 0;
+}
+
+.notification-dropdown[dir="rtl"] .dropdown-filters {
+    flex-direction: row-reverse;
+}
+
+.notification-dropdown[dir="rtl"] .filter-btn {
+    margin-right: 0;
+    margin-left: 8px;
+}
+
+.notification-dropdown[dir="rtl"] .notification-item {
+    flex-direction: row-reverse;
+}
+
+.notification-dropdown[dir="rtl"] .notification-icon-wrapper {
+    margin-right: 0;
+    margin-left: 12px;
+}
+
+.notification-dropdown[dir="rtl"] .notification-content {
+    text-align: right;
+}
+
+.notification-dropdown[dir="rtl"] .notification-header {
+    flex-direction: row-reverse;
+}
+
+.notification-dropdown[dir="rtl"] .notification-time {
+    margin-right: 0;
+    margin-left: auto;
+}
+
+/* LTR Support for Notifications */
+.notification-dropdown[dir="ltr"] {
+    text-align: left;
+}
+
+.notification-dropdown[dir="ltr"] .dropdown-header {
+    flex-direction: row;
+}
+
+.notification-dropdown[dir="ltr"] .dropdown-header h3 {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+.notification-dropdown[dir="ltr"] .mark-all-read-btn {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.notification-dropdown[dir="ltr"] .dropdown-filters {
+    flex-direction: row;
+}
+
+.notification-dropdown[dir="ltr"] .filter-btn {
+    margin-left: 0;
+    margin-right: 8px;
+}
+
+.notification-dropdown[dir="ltr"] .notification-item {
+    flex-direction: row;
+}
+
+.notification-dropdown[dir="ltr"] .notification-icon-wrapper {
+    margin-left: 0;
+    margin-right: 12px;
+}
+
+.notification-dropdown[dir="ltr"] .notification-content {
+    text-align: left;
+}
+
+.notification-dropdown[dir="ltr"] .notification-header {
+    flex-direction: row;
+}
+
+.notification-dropdown[dir="ltr"] .notification-time {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+/* Language-specific font adjustments */
+.notification-dropdown[dir="rtl"] {
+    font-family: 'Cairo', 'Segoe UI', Tahoma, Arial, sans-serif;
+}
+
+.notification-dropdown[dir="ltr"] {
+    font-family: 'Inter', 'Segoe UI', Tahoma, Arial, sans-serif;
+}
+
+/* Animation adjustments for RTL */
+.notification-dropdown[dir="rtl"] .notification-item {
+    animation: slideInRight 0.3s ease-out;
+}
+
+.notification-dropdown[dir="ltr"] .notification-item {
+    animation: slideInLeft 0.3s ease-out;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .notification-dropdown[dir="rtl"] .dropdown-filters {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+    
+    .notification-dropdown[dir="ltr"] .dropdown-filters {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+    
+    .notification-dropdown[dir="rtl"] .filter-btn {
+        margin-left: 4px;
+        margin-right: 0;
+    }
+    
+    .notification-dropdown[dir="ltr"] .filter-btn {
+        margin-right: 4px;
+        margin-left: 0;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .notification-dropdown[dir="rtl"],
+    .notification-dropdown[dir="ltr"] {
+        background-color: #1f2937;
+        border-color: #374151;
+        color: #f9fafb;
+    }
+    
+    .notification-dropdown[dir="rtl"] .notification-item:hover,
+    .notification-dropdown[dir="ltr"] .notification-item:hover {
+        background-color: #374151;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .notification-dropdown[dir="rtl"] .filter-btn.active,
+    .notification-dropdown[dir="ltr"] .filter-btn.active {
+        border: 2px solid currentColor;
+    }
+    
+    .notification-dropdown[dir="rtl"] .notification-item.unread,
+    .notification-dropdown[dir="ltr"] .notification-item.unread {
+        border-left: 4px solid #3b82f6;
+    }
+    
+    .notification-dropdown[dir="ltr"] .notification-item.unread {
+        border-left: none;
+        border-right: 4px solid #3b82f6;
+    }
+}

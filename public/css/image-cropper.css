@@ -1,0 +1,253 @@
+/* أنماط مكون كروب الصور */
+
+.cropper-container {
+    position: relative;
+    max-height: 400px;
+    overflow: hidden;
+    border: 1px solid #dee2e6;
+    border-radius: 0.375rem;
+    background-color: #f8f9fa;
+}
+
+.cropper-container .cropper-view-box,
+.cropper-container .cropper-face {
+    border-radius: 0;
+}
+
+.cropper-container .cropper-view-box {
+    outline: 1px solid #39f;
+    outline-color: rgba(51, 153, 255, 0.75);
+}
+
+.cropper-container .cropper-line {
+    background-color: #39f;
+}
+
+.cropper-container .cropper-point {
+    background-color: #39f;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+}
+
+.cropper-container .cropper-point.point-se {
+    top: 100%;
+    right: 0;
+    margin-top: -3px;
+    margin-right: -3px;
+}
+
+.cropper-container .cropper-point.point-sw {
+    top: 100%;
+    left: 0;
+    margin-top: -3px;
+    margin-left: -3px;
+}
+
+.cropper-container .cropper-point.point-nw {
+    top: 0;
+    left: 0;
+    margin-top: -3px;
+    margin-left: -3px;
+}
+
+.cropper-container .cropper-point.point-ne {
+    top: 0;
+    right: 0;
+    margin-top: -3px;
+    margin-right: -3px;
+}
+
+.cropper-container .cropper-point.point-w,
+.cropper-container .cropper-point.point-e {
+    top: 50%;
+    margin-top: -3px;
+}
+
+.cropper-container .cropper-point.point-w {
+    left: 0;
+    margin-left: -3px;
+}
+
+.cropper-container .cropper-point.point-e {
+    right: 0;
+    margin-right: -3px;
+}
+
+.cropper-container .cropper-point.point-n,
+.cropper-container .cropper-point.point-s {
+    left: 50%;
+    margin-left: -3px;
+}
+
+.cropper-container .cropper-point.point-n {
+    top: 0;
+    margin-top: -3px;
+}
+
+.cropper-container .cropper-point.point-s {
+    bottom: 0;
+    margin-bottom: -3px;
+}
+
+/* أدوات التحكم */
+.cropper-controls {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 0.375rem;
+    border: 1px solid #dee2e6;
+}
+
+.cropper-controls .btn-group-vertical .btn {
+    margin-bottom: 0.25rem;
+    border-radius: 0.375rem;
+}
+
+.cropper-controls .btn-group-vertical .btn:last-child {
+    margin-bottom: 0;
+}
+
+.cropper-controls .btn {
+    font-size: 0.875rem;
+    padding: 0.5rem 0.75rem;
+    transition: all 0.15s ease-in-out;
+}
+
+.cropper-controls .btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* معاينة النتيجة */
+.preview-container {
+    margin-top: 1rem;
+}
+
+.preview-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 0.375rem;
+    margin-top: 0.5rem;
+}
+
+.preview-box img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+/* تحسينات للمودال */
+#imageCropperModal .modal-dialog {
+    max-width: 90vw;
+}
+
+#imageCropperModal .modal-body {
+    padding: 1.5rem;
+}
+
+#imageCropperModal .modal-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+}
+
+#imageCropperModal .modal-footer {
+    background-color: #f8f9fa;
+    border-top: 1px solid #dee2e6;
+}
+
+/* أنماط Cropper.js المخصصة */
+.cropper-bg {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAQMAAAAlPW0iAAAAA3NCSVQICAjb4U/gAAAABlBMVEXMzMz////TjRV2AAAACXBIWXMAAArrAAAK6wGCiw1aAAAAHHRFWHRTb2Z0d2FyZQBBZG9iZSBGaXJld29ya3MgQ1M26LyyjAAAABFJREFUCJlj+M/AgBVhF/0PAH6/D/HkDxOGAAAAAElFTkSuQmCC');
+}
+
+/* تحسينات للاستجابة */
+@media (max-width: 768px) {
+    #imageCropperModal .modal-dialog {
+        max-width: 95vw;
+        margin: 0.5rem;
+    }
+    
+    .cropper-controls {
+        margin-top: 1rem;
+    }
+    
+    .cropper-container {
+        max-height: 300px;
+    }
+}
+
+/* تأثيرات الحركة */
+.cropper-container img {
+    transition: opacity 0.3s ease;
+}
+
+.cropper-container img.loading {
+    opacity: 0.5;
+}
+
+/* تحسينات إضافية */
+.cropper-controls .form-label {
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 0.5rem;
+}
+
+.cropper-controls .form-select {
+    border-radius: 0.375rem;
+    border-color: #ced4da;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.cropper-controls .form-select:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* أنماط للأزرار */
+.btn-outline-primary {
+    color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.btn-outline-primary:hover {
+    color: #fff;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.btn-outline-secondary {
+    color: #6c757d;
+    border-color: #6c757d;
+}
+
+.btn-outline-secondary:hover {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.btn-outline-warning {
+    color: #ffc107;
+    border-color: #ffc107;
+}
+
+.btn-outline-warning:hover {
+    color: #000;
+    background-color: #ffc107;
+    border-color: #ffc107;
+}
+
+.btn-outline-info {
+    color: #0dcaf0;
+    border-color: #0dcaf0;
+}
+
+.btn-outline-info:hover {
+    color: #000;
+    background-color: #0dcaf0;
+    border-color: #0dcaf0;
+}

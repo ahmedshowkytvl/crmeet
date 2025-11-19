@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Image Generator</title>
+</head>
+<body>
+    <canvas id="canvas" width="400" height="400"></canvas>
+    <br>
+    <button onclick="downloadImage()">تحميل الصورة</button>
+    
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        // رسم خلفية
+        ctx.fillStyle = '#f0f0f0';
+        ctx.fillRect(0, 0, 400, 400);
+        
+        // رسم دائرة للوجه
+        ctx.fillStyle = '#ffdbac';
+        ctx.beginPath();
+        ctx.arc(200, 150, 80, 0, 2 * Math.PI);
+        ctx.fill();
+        
+        // رسم العينين
+        ctx.fillStyle = '#000';
+        ctx.beginPath();
+        ctx.arc(180, 130, 8, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(220, 130, 8, 0, 2 * Math.PI);
+        ctx.fill();
+        
+        // رسم الأنف
+        ctx.fillStyle = '#ffdbac';
+        ctx.beginPath();
+        ctx.arc(200, 150, 5, 0, 2 * Math.PI);
+        ctx.fill();
+        
+        // رسم الفم
+        ctx.strokeStyle = '#000';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.arc(200, 170, 20, 0, Math.PI);
+        ctx.stroke();
+        
+        // رسم الشعر
+        ctx.fillStyle = '#8B4513';
+        ctx.beginPath();
+        ctx.arc(200, 120, 90, Math.PI, 2 * Math.PI);
+        ctx.fill();
+        
+        // رسم الجسم
+        ctx.fillStyle = '#4a90e2';
+        ctx.fillRect(150, 230, 100, 120);
+        
+        // رسم الذراعين
+        ctx.fillStyle = '#ffdbac';
+        ctx.fillRect(120, 240, 30, 80);
+        ctx.fillRect(250, 240, 30, 80);
+        
+        function downloadImage() {
+            const link = document.createElement('a');
+            link.download = 'test-portrait.png';
+            link.href = canvas.toDataURL();
+            link.click();
+        }
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,212 @@
+/* Custom Date Picker Styles for dd/mm/yyyy format */
+
+/* Date Input Wrapper */
+.date-input-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+/* Custom Date Input */
+.custom-date-input {
+    padding: 12px 45px 12px 15px !important;
+    border: 2px solid #e9ecef !important;
+    border-radius: 8px !important;
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    color: #495057 !important;
+    background-color: #fff !important;
+    transition: all 0.3s ease !important;
+    text-align: center !important;
+    direction: ltr !important;
+}
+
+.custom-date-input:focus {
+    border-color: #007bff !important;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25) !important;
+    outline: none !important;
+}
+
+.custom-date-input:hover {
+    border-color: #007bff !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.15) !important;
+}
+
+/* Date Input Icon */
+.date-input-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6c757d;
+    font-size: 16px;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.date-input-wrapper.focused .date-input-icon {
+    color: #007bff;
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* Date Display */
+.date-display {
+    margin-top: 8px;
+    padding: 8px 12px;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    border-radius: 6px;
+    font-size: 14px;
+    animation: fadeInUp 0.3s ease;
+}
+
+.date-display i {
+    color: #28a745;
+}
+
+/* Focused State */
+.date-focused {
+    border-color: #007bff !important;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25) !important;
+}
+
+/* Validation States */
+.custom-date-input.is-valid {
+    border-color: #28a745 !important;
+    background-image: none !important;
+}
+
+.custom-date-input.is-valid:focus {
+    border-color: #28a745 !important;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25) !important;
+}
+
+.custom-date-input.is-invalid {
+    border-color: #dc3545 !important;
+    background-image: none !important;
+}
+
+.custom-date-input.is-invalid:focus {
+    border-color: #dc3545 !important;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25) !important;
+}
+
+/* RTL Support */
+[dir="rtl"] .date-input-icon {
+    right: auto;
+    left: 15px;
+}
+
+[dir="rtl"] .custom-date-input {
+    padding: 12px 15px 12px 45px !important;
+    text-align: center !important;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hover Effects */
+.date-input-wrapper:hover .date-input-icon {
+    color: #007bff;
+    transform: translateY(-50%) scale(1.05);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .custom-date-input {
+        font-size: 16px !important; /* Prevents zoom on iOS */
+        padding: 14px 45px 14px 15px !important;
+    }
+    
+    .date-input-icon {
+        font-size: 18px;
+        right: 12px;
+    }
+    
+    .date-input-icon {
+        right: auto;
+        left: 12px;
+    }
+    
+    .custom-date-input {
+        padding: 14px 15px 14px 45px !important;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .custom-date-input {
+        background-color: #343a40 !important;
+        border-color: #495057 !important;
+        color: #fff !important;
+    }
+    
+    .custom-date-input:focus {
+        border-color: #007bff !important;
+        background-color: #343a40 !important;
+    }
+    
+    .date-input-icon {
+        color: #adb5bd;
+    }
+    
+    .date-display {
+        background-color: #155724;
+        border-color: #c3e6cb;
+        color: #d4edda;
+    }
+}
+
+/* Custom Placeholder Styling */
+.custom-date-input::-webkit-datetime-edit-text {
+    color: #6c757d;
+    font-weight: 400;
+}
+
+.custom-date-input::-webkit-datetime-edit-month-field,
+.custom-date-input::-webkit-datetime-edit-day-field,
+.custom-date-input::-webkit-datetime-edit-year-field {
+    color: #495057;
+    font-weight: 500;
+}
+
+/* Firefox specific styles */
+.custom-date-input::-moz-placeholder {
+    color: #6c757d;
+    opacity: 1;
+}
+
+/* Enhanced Visual Feedback */
+.date-input-wrapper {
+    transition: all 0.3s ease;
+}
+
+.date-input-wrapper:hover {
+    transform: translateY(-1px);
+}
+
+.date-input-wrapper.focused {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.15);
+}
+
+/* Success Animation */
+.custom-date-input.is-valid {
+    animation: successPulse 0.6s ease;
+}
+
+@keyframes successPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
